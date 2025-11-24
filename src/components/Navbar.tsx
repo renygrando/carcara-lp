@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Menu, X, ChevronDown } from 'lucide-react';
-import carcaraLogo from 'figma:asset/117db446370c9fbefef909e82e97db9ab828fdaf.png';
+import carcaraLogo from '/logo.svg';
 
 interface NavbarProps {
   currentPath?: string;
