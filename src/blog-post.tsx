@@ -363,7 +363,6 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
                   Compartilhar este artigo:
                 </span>
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px' }}>
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px' }}>
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
