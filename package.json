@@ -59,4 +59,6 @@
           "dev": "vite",
           "build": "vite build"
       }
+        "marked": "^12.0.2",
+        "dompurify": "^3.1.6"
   }

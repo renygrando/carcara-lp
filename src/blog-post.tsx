@@ -1,7 +1,8 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import { fetchBlogPostBySlug, getStrapiMediaUrl, type BlogPost } from './services/strapi';
+import { SEO } from './components/SEO';
 import { Calendar, Clock, ArrowLeft } from 'lucide-react';
 import { motion } from 'motion/react';
 import { navigate } from './components/Router';
@@ -22,8 +23,19 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
       setLoading(true);
       setError(null);
       try {
+        const cacheKey = `blog_post_${slug}`;
+        const cached = sessionStorage.getItem(cacheKey);
+        if (cached) {
+          setPost(JSON.parse(cached));
+          setLoading(false);
+          return;
+        }
         const p = await fetchBlogPostBySlug(slug);
-        if (!p) setError('Post não encontrado ou ainda não publicado.');
+        if (!p) {
+          setError('Post não encontrado ou ainda não publicado.');
+        } else {
+          sessionStorage.setItem(cacheKey, JSON.stringify(p));
+        }
         setPost(p);
       } catch (e: any) {
         setError(e.message || 'Erro ao carregar post');
@@ -51,14 +63,25 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
   };
 
   const renderContent = (content: string) => {
-    // Render simples: quebra por dupla quebra de linha e cria <p>
-    return content
-      .split(/\n\n+/)
-      .map((chunk, i) => (
-        <p key={i} style={{ fontSize: '18px', lineHeight: 1.7, marginBottom: '20px', color: '#1A1A1A' }}>
-          {chunk.trim()}
-        </p>
-      ));
+    // Usa marked + DOMPurify para converter Markdown seguro
+    try {
+      // Lazy import para não impactar bundle inicial
+      const { marked } = require('marked');
+      const DOMPurify = require('dompurify');
+      const html = marked.parse(content || '');
+      // Em ambientes SSR window pode não existir, aqui estamos em client
+      const clean = DOMPurify.sanitize(html);
+      return <div style={{ fontSize: '18px', lineHeight: 1.7, color: '#1A1A1A' }} dangerouslySetInnerHTML={{ __html: clean }} />;
+    } catch (e) {
+      // Fallback simples se libs não carregarem
+      return content
+        .split(/\n\n+/)
+        .map((chunk, i) => (
+          <p key={i} style={{ fontSize: '18px', lineHeight: 1.7, marginBottom: '20px', color: '#1A1A1A' }}>
+            {chunk.trim()}
+          </p>
+        ));
+    }
   };
 
   return (
@@ -84,6 +107,16 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
           >
             <ArrowLeft className="w-4 h-4" /> Voltar
           </motion.button>
+          {post && (
+            <SEO
+              title={`${post.title} | Blog Carcará`}
+              description={post.excerpt || post.title}
+              image={post.coverImage?.url ? getStrapiMediaUrl(post.coverImage.url) : undefined}
+              type="article"
+              publishedTime={post.publishedAt}
+              modifiedTime={post.updatedAt}
+            />
+          )}
           {loading ? (
             <p style={{ fontSize: '18px' }}>Carregando...</p>
           ) : error ? (
@@ -125,7 +158,58 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
                   }}
                 />
               )}
-              <article>{renderContent(post.content)}</article>
+              <article style={{ marginBottom: '56px' }}>{renderContent(post.content)}</article>
+              {/* Share buttons */}
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', marginBottom: '80px' }}>
+                <span style={{ fontWeight: 600, fontSize: '15px', color: '#092D22' }}>Compartilhar:</span>
+                <button
+                  onClick={() => {
+                    const url = window.location.href;
+                    const text = encodeURIComponent(post.title);
+                    window.open(`https://wa.me/?text=${text}%20${encodeURIComponent(url)}`, '_blank');
+                  }}
+                  style={{ background: '#25D366', color: '#fff', border: 'none', padding: '10px 16px', borderRadius: '8px', cursor: 'pointer', fontWeight: 600 }}
+                >
+                  WhatsApp
+                </button>
+                <button
+                  onClick={() => {
+                    const url = encodeURIComponent(window.location.href);
+                    const text = encodeURIComponent(post.title);
+                    window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`, '_blank');
+                  }}
+                  style={{ background: '#0A66C2', color: '#fff', border: 'none', padding: '10px 16px', borderRadius: '8px', cursor: 'pointer', fontWeight: 600 }}
+                >
+                  LinkedIn
+                </button>
+                <button
+                  onClick={() => {
+                    const url = encodeURIComponent(window.location.href);
+                    const text = encodeURIComponent(post.title);
+                    window.open(`https://twitter.com/intent/tweet?text=${text}&url=${url}`, '_blank');
+                  }}
+                  style={{ background: '#1D9BF0', color: '#fff', border: 'none', padding: '10px 16px', borderRadius: '8px', cursor: 'pointer', fontWeight: 600 }}
+                >
+                  X (Twitter)
+                </button>
+                <button
+                  onClick={() => {
+                    navigator.clipboard.writeText(window.location.href);
+                    alert('Link copiado!');
+                  }}
+                  style={{ background: '#FFD93D', color: '#092D22', border: 'none', padding: '10px 16px', borderRadius: '8px', cursor: 'pointer', fontWeight: 600 }}
+                >
+                  Copiar link
+                </button>
+                {navigator.share && (
+                  <button
+                    onClick={() => navigator.share({ title: post.title, text: post.excerpt || post.title, url: window.location.href })}
+                    style={{ background: '#092D22', color: '#fff', border: 'none', padding: '10px 16px', borderRadius: '8px', cursor: 'pointer', fontWeight: 600 }}
+                  >
+                    Share API
+                  </button>
+                )}
+              </div>
             </>
           ) : null}
         </div>

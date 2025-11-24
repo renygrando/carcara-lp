@@ -1,8 +1,9 @@
+import React, { useEffect, useState } from 'react';
 import { ArrowRight, Calendar, Clock } from 'lucide-react';
 import { motion } from 'motion/react';
-import { useEffect, useState } from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import { SEO } from './components/SEO';
 import { fetchBlogPosts, getStrapiMediaUrl, resolveStrapiUrl, type BlogPost } from './services/strapi';
 
 export default function BlogPage() {
@@ -23,9 +24,20 @@ export default function BlogPage() {
       setError(null);
       try {
         console.debug('[Blog] STRAPI_URL em runtime:', strapiUrl);
+        // Cache por página
+        const cacheKey = `blog_page_${currentPage}`;
+        const cached = sessionStorage.getItem(cacheKey);
+        if (cached) {
+          const parsed = JSON.parse(cached);
+            setPosts(parsed.data);
+            setTotalPages(parsed.meta.pagination.pageCount);
+            setLoading(false);
+            return;
+        }
         const response = await fetchBlogPosts(currentPage);
         setPosts(response.data);
         setTotalPages(response.meta.pagination.pageCount);
+        sessionStorage.setItem(cacheKey, JSON.stringify(response));
         if (response.data.length === 0 && isLikelyWrongUrl) {
           setError('A URL do Strapi está apontando para localhost em produção. Verifique a variável VITE_STRAPI_URL no Easypanel.');
         }
@@ -58,6 +70,7 @@ export default function BlogPage() {
 
   return (
     <div className="min-h-screen bg-white" style={{ fontFamily: 'Inter, sans-serif', color: '#1A1A1A' }}>
+      <SEO title="Blog Carcará - IA, Vendas e Transformação Digital" description="Artigos sobre vendas, inteligência artificial aplicada e transformação digital." />
       <Navbar currentPath="/blog" />
 
       {/* Hero */}
@@ -85,8 +98,18 @@ export default function BlogPage() {
       <section style={{ padding: '96px 0' }}>
         <div className="max-w-[1280px] mx-auto px-6 lg:px-20">
           {loading ? (
-            <div className="text-center">
-              <p style={{ fontSize: '18px', color: '#1A1A1A' }}>Carregando posts...</p>
+            <div>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                {Array.from({ length: 6 }).map((_, i) => (
+                  <div key={i} className="animate-pulse bg-white rounded-2xl overflow-hidden shadow-lg p-4">
+                    <div className="bg-gray-200 h-60 w-full mb-4" />
+                    <div className="bg-gray-200 h-6 w-3/4 mb-3" />
+                    <div className="bg-gray-200 h-4 w-full mb-2" />
+                    <div className="bg-gray-200 h-4 w-5/6 mb-6" />
+                    <div className="bg-gray-200 h-6 w-24" />
+                  </div>
+                ))}
+              </div>
             </div>
           ) : error ? (
             <div className="text-center max-w-2xl mx-auto">
@@ -177,7 +200,7 @@ export default function BlogPage() {
 
                       {/* Botão de leitura */}
                       <motion.a
-                        href={`#/blog/${post.slug}`}
+                        href={`#/blog/${post.slug || post.documentId}`}
                         whileHover={{ x: 5 }}
                         className="inline-flex items-center gap-2"
                         style={{
@@ -195,48 +218,58 @@ export default function BlogPage() {
                 ))}
               </div>
 
-              {/* Paginação */}
+              {/* Paginação avançada */}
               {totalPages > 1 && (
-                <div className="flex justify-center items-center gap-4">
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    disabled={currentPage === 1}
-                    onClick={() => setCurrentPage((prev) => Math.max(1, prev - 1))}
-                    style={{
-                      padding: '12px 24px',
-                      borderRadius: '8px',
-                      backgroundColor: currentPage === 1 ? '#E5E5E5' : '#FFD93D',
-                      color: '#092D22',
-                      fontWeight: 600,
-                      border: 'none',
-                      cursor: currentPage === 1 ? 'not-allowed' : 'pointer',
-                    }}
-                  >
-                    Anterior
-                  </motion.button>
-
-                  <span style={{ fontSize: '16px', color: '#1A1A1A' }}>
-                    Página {currentPage} de {totalPages}
-                  </span>
-
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    disabled={currentPage === totalPages}
-                    onClick={() => setCurrentPage((prev) => Math.min(totalPages, prev + 1))}
-                    style={{
-                      padding: '12px 24px',
-                      borderRadius: '8px',
-                      backgroundColor: currentPage === totalPages ? '#E5E5E5' : '#FFD93D',
-                      color: '#092D22',
-                      fontWeight: 600,
-                      border: 'none',
-                      cursor: currentPage === totalPages ? 'not-allowed' : 'pointer',
-                    }}
-                  >
-                    Próxima
-                  </motion.button>
+                <div className="flex flex-col items-center gap-4">
+                  <div className="flex flex-wrap justify-center gap-2">
+                    <button
+                      disabled={currentPage === 1}
+                      onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
+                      className="px-4 py-2 rounded-md font-semibold"
+                      style={{ background: currentPage === 1 ? '#E5E5E5' : '#FFD93D', color: '#092D22' }}
+                    >
+                      Anterior
+                    </button>
+                    {Array.from({ length: totalPages }).map((_, i) => {
+                      const page = i + 1;
+                      if (totalPages > 7) {
+                        // Condensar páginas distantes
+                        const near = Math.abs(page - currentPage) <= 2 || page === 1 || page === totalPages;
+                        if (!near) return null;
+                        const showEllipsis =
+                          (page === 2 && currentPage > 4) || (page === totalPages - 1 && currentPage < totalPages - 3);
+                        if (showEllipsis) {
+                          return (
+                            <span key={page} style={{ padding: '8px 12px', color: '#666' }}>
+                              ...
+                            </span>
+                          );
+                        }
+                      }
+                      return (
+                        <button
+                          key={page}
+                          onClick={() => setCurrentPage(page)}
+                          className="px-4 py-2 rounded-md font-semibold"
+                          style={{
+                            background: page === currentPage ? '#092D22' : '#F0F0F0',
+                            color: page === currentPage ? '#FFFFFF' : '#092D22',
+                          }}
+                        >
+                          {page}
+                        </button>
+                      );
+                    })}
+                    <button
+                      disabled={currentPage === totalPages}
+                      onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
+                      className="px-4 py-2 rounded-md font-semibold"
+                      style={{ background: currentPage === totalPages ? '#E5E5E5' : '#FFD93D', color: '#092D22' }}
+                    >
+                      Próxima
+                    </button>
+                  </div>
+                  <div style={{ fontSize: '14px', color: '#555' }}>Página {currentPage} de {totalPages}</div>
                 </div>
               )}
             </>
