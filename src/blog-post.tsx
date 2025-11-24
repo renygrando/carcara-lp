@@ -465,6 +465,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
                     Compartilhar
                   </motion.button>
                 )}
+                </div>
               </div>
             </>
           ) : null}
