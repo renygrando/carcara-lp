@@ -24,7 +24,7 @@ export function SEO({
 
     const setMeta = (name: string, content: string, attr: 'name' | 'property' = 'name') => {
       if (!content) return;
-      let el = head.querySelector(`${attr}="${name}"`) as HTMLMetaElement | null;
+      let el = head.querySelector(`meta[${attr}="${name}"]`) as HTMLMetaElement | null;
       if (!el) {
         el = document.createElement('meta');
         el.setAttribute(attr, name);
