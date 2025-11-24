@@ -111,6 +111,23 @@ export default function NichoPageV2({ data }: NichoPageV2Props) {
     };
   }, [data.badgeName]);
 
+  // Build Service schema for products
+  const serviceSchema = data.products.map((product) => ({
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: product.name,
+    description: product.description,
+    provider: {
+      '@type': 'Organization',
+      name: 'Carcará'
+    },
+    serviceType: product.badge,
+    offers: {
+      '@type': 'Offer',
+      description: product.pricing
+    }
+  }));
+
   return (
     <div className="min-h-screen bg-white" style={{ fontFamily: 'Inter, sans-serif', color: '#1A1A1A' }}>
       <Navbar currentPath="" />
@@ -119,6 +136,7 @@ export default function NichoPageV2({ data }: NichoPageV2Props) {
         description={data.heroLead}
         image={data.heroImage}
         type="website"
+        structuredData={serviceSchema}
       />
 
       {/* Hero Section */}

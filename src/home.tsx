@@ -1,10 +1,7 @@
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { motion } from 'motion/react';
 import {
   UtensilsCrossed,
-  ShoppingCart,
-  Building2,
-  Factory,
   Wheat,
   Megaphone,
   Users,
@@ -26,37 +23,19 @@ const nichos = [
     icon: UtensilsCrossed,
     name: 'Gastronomia',
     path: '/gastronomia',
-    description: 'Automatize reservas, pedidos e gestão operacional completa',
-  },
-  {
-    icon: ShoppingCart,
-    name: 'E-commerce',
-    path: '/ecommerce',
-    description: 'Recupere vendas perdidas e escale com inteligência artificial',
-  },
-  {
-    icon: Building2,
-    name: 'Gestão Pública',
-    path: '/gestaopublica',
-    description: 'Atendimento ao cidadão eficiente e disponível 24/7',
-  },
-  {
-    icon: Factory,
-    name: 'Indústria',
-    path: '/industria',
-    description: 'Otimize produção, logística e processos industriais',
+    description: 'Reservas, pedidos e atendimento automatizados com IA',
   },
   {
     icon: Wheat,
-    name: 'Agro',
+    name: 'IA na Fazenda',
     path: '/agro',
-    description: 'Gestão inteligente do campo com tecnologia e dados',
+    description: 'IA para gestão de lavoura, vendas e operação rural',
   },
   {
     icon: Megaphone,
-    name: 'Política',
+    name: 'Mumic política',
     path: '/politica',
-    description: 'Engajamento estratégico e relacionamento com eleitores',
+    description: 'Relacione-se com eleitores e monitore engajamento em tempo real',
   },
   {
     icon: Users,
@@ -64,10 +43,17 @@ const nichos = [
     path: '/associacoes',
     description: 'Fortaleça relacionamento e gere receita com tecnologia',
   },
+  {
+    icon: Zap,
+    name: 'Personalizado',
+    path: '/personalizado',
+    description: 'Automações sob medida e agentes inteligentes para sua operação',
+  },
 ];
 
 // Componente de Scroll Reveal
-function ScrollReveal({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
+interface ScrollRevealProps { children: any; delay?: number; key?: any }
+function ScrollReveal({ children, delay = 0 }: ScrollRevealProps) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -98,6 +84,31 @@ export default function HomePage() {
         description="Consultoria e plataforma de inteligência artificial: automações sob medida, agentes conversacionais, dashboards e operação inteligente (Mumic política, IA na Fazenda, Gastronomia, Associações e mais)."
         image="https://www.carcara.ai/og-default.png"
         type="website"
+        structuredData={[
+          {
+            '@context': 'https://schema.org',
+            '@type': 'Organization',
+            name: 'Carcará',
+            url: 'https://www.carcara.ai',
+            logo: 'https://www.carcara.ai/logo.png',
+            description: 'Inteligência artificial aplicada a vendas, operações e automações sob medida.',
+            sameAs: [
+              'https://www.linkedin.com/company/carcarai',
+              'https://www.instagram.com/carcarai'
+            ]
+          },
+          {
+            '@context': 'https://schema.org',
+            '@type': 'WebSite',
+            name: 'Carcará',
+            url: 'https://www.carcara.ai',
+            potentialAction: {
+              '@type': 'SearchAction',
+              target: 'https://www.carcara.ai/blog?search={search_term_string}',
+              'query-input': 'required name=search_term_string'
+            }
+          }
+        ]}
       />
 
       {/* Hero Section */}

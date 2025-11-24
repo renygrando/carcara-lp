@@ -8,6 +8,7 @@ interface SEOProps {
   type?: string; // article, website
   publishedTime?: string;
   modifiedTime?: string;
+  structuredData?: any; // JSON-LD object or array
 }
 
 export function SEO({
@@ -18,6 +19,7 @@ export function SEO({
   type = 'website',
   publishedTime,
   modifiedTime,
+  structuredData,
 }: SEOProps) {
   useEffect(() => {
     const head = document.head;
@@ -55,7 +57,39 @@ export function SEO({
       head.appendChild(link);
     }
     link.href = url;
-  }, [title, description, image, url, type, publishedTime, modifiedTime]);
+
+    // Structured Data (JSON-LD)
+    const existing = head.querySelector('script[data-structured="true"]');
+    if (existing) existing.remove();
+
+    let jsonLd: any = structuredData;
+    if (!jsonLd && type === 'article') {
+      jsonLd = {
+        '@context': 'https://schema.org',
+        '@type': 'Article',
+        headline: title,
+        description,
+        image,
+        datePublished: publishedTime,
+        dateModified: modifiedTime || publishedTime,
+        mainEntityOfPage: url,
+        author: { '@type': 'Organization', name: 'Carcará' },
+        publisher: {
+          '@type': 'Organization',
+          name: 'Carcará',
+          logo: { '@type': 'ImageObject', url: 'https://www.carcara.ai/logo.png' }
+        }
+      };
+    }
+
+    if (jsonLd) {
+      const script = document.createElement('script');
+      script.type = 'application/ld+json';
+      script.setAttribute('data-structured', 'true');
+      script.textContent = JSON.stringify(jsonLd);
+      head.appendChild(script);
+    }
+  }, [title, description, image, url, type, publishedTime, modifiedTime, structuredData]);
 
   return null; // componente só injeta tags
 }
