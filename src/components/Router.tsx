@@ -12,12 +12,12 @@ interface RouterProps {
 
 export function Router({ routes, defaultRoute = '/' }: RouterProps) {
   const [currentPath, setCurrentPath] = useState(
-    window.location.hash.slice(1) || defaultRoute
+    window.location.pathname || defaultRoute
   );
 
   useEffect(() => {
-    const handleHashChange = () => {
-      const newPath = window.location.hash.slice(1) || defaultRoute;
+    const handlePopState = () => {
+      const newPath = window.location.pathname || defaultRoute;
       setCurrentPath(newPath);
       
       // Track page view on route change - Meta Pixel automatically tracks page views
@@ -26,8 +26,8 @@ export function Router({ routes, defaultRoute = '/' }: RouterProps) {
       }
     };
 
-    window.addEventListener('hashchange', handleHashChange);
-    return () => window.removeEventListener('hashchange', handleHashChange);
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
   }, [defaultRoute]);
 
   // Matching com suporte a parâmetros
@@ -64,5 +64,6 @@ export function Router({ routes, defaultRoute = '/' }: RouterProps) {
 }
 
 export function navigate(path: string) {
-  window.location.hash = path;
+  window.history.pushState({}, '', path);
+  window.dispatchEvent(new PopStateEvent('popstate'));
 }

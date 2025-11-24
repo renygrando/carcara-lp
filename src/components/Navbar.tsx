@@ -48,7 +48,7 @@ export default function Navbar({ currentPath = '/' }: NavbarProps) {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <motion.a 
-            href="#/" 
+            href="/" 
             className="flex-shrink-0"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
@@ -141,7 +141,7 @@ export default function Navbar({ currentPath = '/' }: NavbarProps) {
               </AnimatePresence>
             </div>
             <motion.a 
-              href="#/sobre" 
+              href="/sobre" 
               className="group relative" 
               style={{ 
                 fontSize: '15px', 
@@ -156,7 +156,7 @@ export default function Navbar({ currentPath = '/' }: NavbarProps) {
               <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#0D4C3A] group-hover:w-full transition-all duration-300" />
             </motion.a>
             <motion.a 
-              href="#/blog" 
+              href="/blog" 
               className="group relative" 
               style={{ 
                 fontSize: '15px', 
@@ -171,7 +171,7 @@ export default function Navbar({ currentPath = '/' }: NavbarProps) {
               <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#0D4C3A] group-hover:w-full transition-all duration-300" />
             </motion.a>
             <motion.a 
-              href="#/contato" 
+              href="/contato" 
               className="group relative" 
               style={{ 
                 fontSize: '15px', 
@@ -289,7 +289,7 @@ export default function Navbar({ currentPath = '/' }: NavbarProps) {
                 ))}
               </div>
               <motion.a
-                href="#/sobre"
+                href="/sobre"
                 className="block rounded-lg transition-colors hover:bg-[#F5F3E8]"
                 style={{ padding: '10px 16px', fontSize: '15px', fontWeight: 500, color: '#092D22', cursor: 'pointer' }}
                 onClick={() => setMobileMenuOpen(false)}
@@ -299,7 +299,7 @@ export default function Navbar({ currentPath = '/' }: NavbarProps) {
                 Sobre
               </motion.a>
               <motion.a
-                href="#/blog"
+                href="/blog"
                 className="block rounded-lg transition-colors hover:bg-[#F5F3E8]"
                 style={{ padding: '10px 16px', fontSize: '15px', fontWeight: 500, color: '#092D22', cursor: 'pointer' }}
                 onClick={() => setMobileMenuOpen(false)}
@@ -309,7 +309,7 @@ export default function Navbar({ currentPath = '/' }: NavbarProps) {
                 Blog
               </motion.a>
               <motion.a
-                href="#/contato"
+                href="/contato"
                 className="block rounded-lg transition-colors hover:bg-[#F5F3E8]"
                 style={{ padding: '10px 16px', fontSize: '15px', fontWeight: 500, color: '#092D22', cursor: 'pointer' }}
                 onClick={() => setMobileMenuOpen(false)}

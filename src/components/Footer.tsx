@@ -65,17 +65,17 @@ export default function Footer() {
             </h3>
             <ul className="space-y-2">
               <li>
-                <a href="#/sobre" className="transition-colors hover:text-[#FFD93D]" style={{ fontSize: '15px', color: 'rgba(255, 255, 255, 0.8)', lineHeight: '32px', cursor: 'pointer' }}>
+                <a href="/sobre" className="transition-colors hover:text-[#FFD93D]" style={{ fontSize: '15px', color: 'rgba(255, 255, 255, 0.8)', lineHeight: '32px', cursor: 'pointer' }}>
                   Sobre
                 </a>
               </li>
               <li>
-                <a href="#/blog" className="transition-colors hover:text-[#FFD93D]" style={{ fontSize: '15px', color: 'rgba(255, 255, 255, 0.8)', lineHeight: '32px', cursor: 'pointer' }}>
+                <a href="/blog" className="transition-colors hover:text-[#FFD93D]" style={{ fontSize: '15px', color: 'rgba(255, 255, 255, 0.8)', lineHeight: '32px', cursor: 'pointer' }}>
                   Blog
                 </a>
               </li>
               <li>
-                <a href="#/contato" className="transition-colors hover:text-[#FFD93D]" style={{ fontSize: '15px', color: 'rgba(255, 255, 255, 0.8)', lineHeight: '32px', cursor: 'pointer' }}>
+                <a href="/contato" className="transition-colors hover:text-[#FFD93D]" style={{ fontSize: '15px', color: 'rgba(255, 255, 255, 0.8)', lineHeight: '32px', cursor: 'pointer' }}>
                   Contato
                 </a>
               </li>
@@ -188,11 +188,11 @@ export default function Footer() {
             © 2025 Carcará — Automação que liberta
           </p>
           <div className="flex gap-4">
-            <a href="#/privacidade" className="transition-colors hover:text-[#FFD93D]" style={{ fontSize: '14px', color: 'rgba(255, 255, 255, 0.6)', cursor: 'pointer' }}>
+            <a href="/privacidade" className="transition-colors hover:text-[#FFD93D]" style={{ fontSize: '14px', color: 'rgba(255, 255, 255, 0.6)', cursor: 'pointer' }}>
               Política de Privacidade
             </a>
             <span style={{ color: 'rgba(255, 255, 255, 0.6)' }}>|</span>
-            <a href="#/termos" className="transition-colors hover:text-[#FFD93D]" style={{ fontSize: '14px', color: 'rgba(255, 255, 255, 0.6)', cursor: 'pointer' }}>
+            <a href="/termos" className="transition-colors hover:text-[#FFD93D]" style={{ fontSize: '14px', color: 'rgba(255, 255, 255, 0.6)', cursor: 'pointer' }}>
               Termos de Uso
             </a>
           </div>
