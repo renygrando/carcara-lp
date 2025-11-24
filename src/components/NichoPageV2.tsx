@@ -192,14 +192,14 @@ export default function NichoPageV2({ data }: NichoPageV2Props) {
 
               {/* H1 */}
               <h1
-                className="leading-tight"
+                className="leading-tight text-[40px] lg:text-[56px]"
                 style={{
                   fontSize: '56px',
                   fontWeight: 700,
                   lineHeight: '64px',
                   letterSpacing: '-1px',
                   color: '#FFFFFF',
-                  maxWidth: '540px',
+                  maxWidth: '100%',
                 }}
               >
                 {data.heroTitle}
@@ -211,7 +211,7 @@ export default function NichoPageV2({ data }: NichoPageV2Props) {
                   fontSize: '18px',
                   lineHeight: '28px',
                   color: 'rgba(255, 255, 255, 0.9)',
-                  maxWidth: '500px',
+                  maxWidth: '100%',
                 }}
               >
                 {data.heroLead}
@@ -262,13 +262,14 @@ export default function NichoPageV2({ data }: NichoPageV2Props) {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.2 }}
+              className="w-full max-w-full"
             >
               <img
                 src={data.heroImage}
                 alt={data.badgeName}
-                className="w-full h-auto"
+                className="w-full h-auto max-w-full"
                 style={{
-                  maxWidth: '540px',
+                  maxWidth: '100%',
                   height: 'auto',
                   objectFit: 'cover',
                   border: '3px solid rgba(255, 217, 61, 0.5)',

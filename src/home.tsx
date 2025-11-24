@@ -173,7 +173,7 @@ export default function HomePage() {
                     letterSpacing: '-1px',
                     color: '#FFFFFF',
                     marginBottom: '24px',
-                    maxWidth: '540px',
+                    maxWidth: '100%',
                   }}
                   className="text-[40px] lg:text-[56px] lg:leading-[64px]"
                 >
@@ -187,7 +187,7 @@ export default function HomePage() {
                     lineHeight: '28px',
                     color: 'rgba(255, 255, 255, 0.9)',
                     marginBottom: '40px',
-                    maxWidth: '500px',
+                    maxWidth: '100%',
                   }}
                 >
                   Transformamos vendas e processos com inteligência artificial. 
@@ -262,13 +262,15 @@ export default function HomePage() {
                 border: '3px solid #FFD93D',
                 padding: '4px',
                 backgroundColor: '#092D22',
+                maxWidth: '100%',
               }}>
                 <ImageWithFallback
                   src="/carcara-voando.png"
                   alt="Carcará - Visão estratégica e precisão"
                   style={{
-                    width: '540px',
-                    height: '400px',
+                    width: '100%',
+                    maxWidth: '540px',
+                    height: 'auto',
                     objectFit: 'cover',
                     display: 'block',
                   }}
@@ -303,13 +305,13 @@ export default function HomePage() {
               Soluções especializadas por setor
             </h2>
             <p
-              className="text-center"
+              className="text-center px-4"
               style={{
                 fontSize: '18px',
                 lineHeight: '28px',
                 color: 'rgba(26, 26, 26, 0.8)',
                 marginBottom: '64px',
-                maxWidth: '700px',
+                maxWidth: '100%',
                 margin: '0 auto 64px',
               }}
             >
