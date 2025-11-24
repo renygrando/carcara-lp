@@ -147,8 +147,10 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
           border-left: 4px solid #FFD93D;
           padding: 20px 24px;
           margin: 32px 0;
-          background: #F5F3E8;
-          border-radius: 8px;
+          background: rgba(245, 243, 232, 0.8);
+          backdropFilter: blur(12px);
+          -webkit-backdrop-filter: blur(12px);
+          border: 2px solid rgba(9, 45, 34, 0.1);
           font-style: italic;
           color: #1A1A1A;
         }
@@ -170,26 +172,26 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
         .blog-content img {
           max-width: 100%;
           height: auto;
-          border-radius: 12px;
           margin: 32px 0;
+          border: 3px solid rgba(255, 217, 61, 0.5);
           box-shadow: 0 8px 24px rgba(0,0,0,0.1);
         }
         .blog-content code {
-          background: #F5F3E8;
+          background: rgba(245, 243, 232, 0.8);
           padding: 3px 8px;
-          border-radius: 4px;
           font-family: 'Courier New', monospace;
           font-size: 16px;
           color: #092D22;
+          border: 1px solid rgba(9, 45, 34, 0.1);
         }
         .blog-content pre {
           background: #092D22;
           color: #F5F3E8;
           padding: 24px;
-          border-radius: 12px;
           overflow-x: auto;
           margin: 32px 0;
           line-height: 1.6;
+          border: 2px solid rgba(255, 217, 61, 0.3);
         }
         .blog-content pre code {
           background: none;
@@ -214,8 +216,8 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
           border-collapse: collapse;
           margin: 32px 0;
           background: white;
-          border-radius: 8px;
           overflow: hidden;
+          border: 2px solid rgba(9, 45, 34, 0.1);
           box-shadow: 0 2px 8px rgba(0,0,0,0.08);
         }
         .blog-content th {
@@ -301,8 +303,8 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
                     width: '100%',
                     maxHeight: '480px',
                     objectFit: 'cover',
-                    borderRadius: '16px',
                     marginBottom: '56px',
+                    border: '3px solid rgba(255, 217, 61, 0.5)',
                     boxShadow: '0 20px 60px rgba(0,0,0,0.15)',
                   }}
                 />
@@ -312,9 +314,11 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
               {/* Call to Action */}
               <div 
                 style={{ 
-                  background: 'linear-gradient(135deg, #F5F3E8 0%, #FFD93D 100%)',
+                  background: 'linear-gradient(180deg, rgba(245, 243, 232, 0.9) 0%, rgba(255, 217, 61, 0.8) 100%)',
+                  backdropFilter: 'blur(20px)',
+                  WebkitBackdropFilter: 'blur(20px)',
                   padding: '40px',
-                  borderRadius: '16px',
+                  border: '2px solid rgba(9, 45, 34, 0.1)',
                   marginBottom: '56px',
                   textAlign: 'center',
                 }}
@@ -346,11 +350,11 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
                     backgroundColor: '#092D22',
                     color: 'white',
                     padding: '16px 32px',
-                    borderRadius: '8px',
                     fontSize: '16px',
                     fontWeight: 700,
                     textDecoration: 'none',
-                    boxShadow: '0 4px 12px rgba(9, 45, 34, 0.3)',
+                    border: '2px solid #FFD93D',
+                    boxShadow: '0 8px 24px rgba(9, 45, 34, 0.3)',
                   }}
                 >
                   Agendar diagnóstico gratuito
@@ -374,9 +378,8 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
                   style={{ 
                     background: '#25D366', 
                     color: '#fff', 
-                    border: 'none', 
+                    border: '2px solid #25D366', 
                     padding: '12px 20px', 
-                    borderRadius: '8px', 
                     cursor: 'pointer', 
                     fontWeight: 600,
                     fontSize: '15px',
@@ -394,9 +397,8 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
                   style={{ 
                     background: '#0A66C2', 
                     color: '#fff', 
-                    border: 'none', 
+                    border: '2px solid #0A66C2', 
                     padding: '12px 20px', 
-                    borderRadius: '8px', 
                     cursor: 'pointer', 
                     fontWeight: 600,
                     fontSize: '15px',
@@ -415,9 +417,8 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
                   style={{ 
                     background: '#1D9BF0', 
                     color: '#fff', 
-                    border: 'none', 
+                    border: '2px solid #1D9BF0', 
                     padding: '12px 20px', 
-                    borderRadius: '8px', 
                     cursor: 'pointer', 
                     fontWeight: 600,
                     fontSize: '15px',
@@ -435,9 +436,8 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
                   style={{ 
                     background: '#FFD93D', 
                     color: '#092D22', 
-                    border: 'none', 
+                    border: '2px solid #092D22', 
                     padding: '12px 20px', 
-                    borderRadius: '8px', 
                     cursor: 'pointer', 
                     fontWeight: 600,
                     fontSize: '15px',
@@ -453,9 +453,8 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
                     style={{ 
                       background: '#092D22', 
                       color: '#fff', 
-                      border: 'none', 
+                      border: '2px solid #092D22', 
                       padding: '12px 20px', 
-                      borderRadius: '8px', 
                       cursor: 'pointer', 
                       fontWeight: 600,
                       fontSize: '15px',

@@ -110,10 +110,9 @@ export default function Navbar({ currentPath = '/' }: NavbarProps) {
                       backgroundColor: 'rgba(255, 255, 255, 0.95)',
                       backdropFilter: 'blur(20px)',
                       WebkitBackdropFilter: 'blur(20px)',
-                      borderRadius: '12px',
                       padding: '12px',
                       boxShadow: '0 12px 40px rgba(13, 76, 58, 0.12)',
-                      border: '1px solid rgba(13, 76, 58, 0.08)',
+                      border: '2px solid rgba(13, 76, 58, 0.12)',
                       width: '280px',
                     }}
                     onMouseEnter={() => setNichosDropdownOpen(true)}
@@ -203,11 +202,10 @@ export default function Navbar({ currentPath = '/' }: NavbarProps) {
                   backgroundColor: '#FFD93D',
                   color: '#092D22',
                   padding: '14px 28px',
-                  borderRadius: '10px',
                   fontSize: '15px',
                   fontWeight: 600,
-                  boxShadow: '0 4px 16px rgba(255, 217, 61, 0.25)',
-                  border: '1px solid rgba(13, 76, 58, 0.1)',
+                  boxShadow: '0 8px 24px rgba(255, 217, 61, 0.35)',
+                  border: '2px solid #092D22',
                   cursor: 'pointer',
                 }}
               >
@@ -223,7 +221,6 @@ export default function Navbar({ currentPath = '/' }: NavbarProps) {
             style={{ 
               color: '#092D22',
               padding: '8px',
-              borderRadius: '8px',
             }}
             whileHover={{ backgroundColor: 'rgba(13, 76, 58, 0.05)' }}
             whileTap={{ scale: 0.95 }}
@@ -328,10 +325,9 @@ export default function Navbar({ currentPath = '/' }: NavbarProps) {
                     backgroundColor: '#FFD93D',
                     color: '#092D22',
                     padding: '14px 32px',
-                    borderRadius: '10px',
                     fontSize: '15px',
                     fontWeight: 600,
-                    border: '1px solid rgba(13, 76, 58, 0.1)',
+                    border: '2px solid #092D22',
                     cursor: 'pointer',
                   }}
                   whileTap={{ scale: 0.96 }}

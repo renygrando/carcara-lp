@@ -32,12 +32,12 @@ export default function SobrePage() {
                   backgroundColor: '#FFD93D',
                   color: '#092D22',
                   padding: '12px 24px',
-                  borderRadius: '100px',
                   fontSize: '14px',
                   fontWeight: 700,
                   textTransform: 'uppercase',
                   letterSpacing: '0.5px',
                   marginBottom: '32px',
+                  border: '2px solid #092D22',
                 }}
               >
                 SOBRE A CARCARÁ
@@ -73,7 +73,7 @@ export default function SobrePage() {
                   width: '100%',
                   height: '400px',
                   objectFit: 'cover',
-                  borderRadius: '16px',
+                  border: '3px solid rgba(255, 217, 61, 0.5)',
                   boxShadow: '0 20px 60px rgba(0, 0, 0, 0.15)',
                 }}
               />
@@ -88,10 +88,11 @@ export default function SobrePage() {
           <div className="grid md:grid-cols-3 gap-8">
             <div
               style={{
-                backgroundColor: '#FFFFFF',
-                borderRadius: '12px',
+                backgroundColor: 'rgba(255, 255, 255, 0.85)',
+                backdropFilter: 'blur(20px)',
+                WebkitBackdropFilter: 'blur(20px)',
                 padding: '32px',
-                border: '2px solid #E8E6DC',
+                border: '2px solid rgba(9, 45, 34, 0.1)',
               }}
             >
               <Target className="w-12 h-12" style={{ color: '#0D4C3A', marginBottom: '24px' }} />
@@ -112,10 +113,11 @@ export default function SobrePage() {
 
             <div
               style={{
-                backgroundColor: '#FFFFFF',
-                borderRadius: '12px',
+                backgroundColor: 'rgba(255, 255, 255, 0.85)',
+                backdropFilter: 'blur(20px)',
+                WebkitBackdropFilter: 'blur(20px)',
                 padding: '32px',
-                border: '2px solid #E8E6DC',
+                border: '2px solid rgba(9, 45, 34, 0.1)',
               }}
             >
               <Lightbulb className="w-12 h-12" style={{ color: '#0D4C3A', marginBottom: '24px' }} />
@@ -136,10 +138,11 @@ export default function SobrePage() {
 
             <div
               style={{
-                backgroundColor: '#FFFFFF',
-                borderRadius: '12px',
+                backgroundColor: 'rgba(255, 255, 255, 0.85)',
+                backdropFilter: 'blur(20px)',
+                WebkitBackdropFilter: 'blur(20px)',
                 padding: '32px',
-                border: '2px solid #E8E6DC',
+                border: '2px solid rgba(9, 45, 34, 0.1)',
               }}
             >
               <Users className="w-12 h-12" style={{ color: '#0D4C3A', marginBottom: '24px' }} />
@@ -183,9 +186,11 @@ export default function SobrePage() {
           <div className="grid md:grid-cols-2 gap-8">
             <div
               style={{
-                backgroundColor: '#F5F3E8',
-                borderRadius: '12px',
+                backgroundColor: 'rgba(245, 243, 232, 0.8)',
+                backdropFilter: 'blur(16px)',
+                WebkitBackdropFilter: 'blur(16px)',
                 padding: '32px',
+                border: '2px solid rgba(9, 45, 34, 0.1)',
               }}
             >
               <h3
@@ -205,9 +210,11 @@ export default function SobrePage() {
 
             <div
               style={{
-                backgroundColor: '#F5F3E8',
-                borderRadius: '12px',
+                backgroundColor: 'rgba(245, 243, 232, 0.8)',
+                backdropFilter: 'blur(16px)',
+                WebkitBackdropFilter: 'blur(16px)',
                 padding: '32px',
+                border: '2px solid rgba(9, 45, 34, 0.1)',
               }}
             >
               <h3
@@ -227,9 +234,11 @@ export default function SobrePage() {
 
             <div
               style={{
-                backgroundColor: '#F5F3E8',
-                borderRadius: '12px',
+                backgroundColor: 'rgba(245, 243, 232, 0.8)',
+                backdropFilter: 'blur(16px)',
+                WebkitBackdropFilter: 'blur(16px)',
                 padding: '32px',
+                border: '2px solid rgba(9, 45, 34, 0.1)',
               }}
             >
               <h3
@@ -249,9 +258,11 @@ export default function SobrePage() {
 
             <div
               style={{
-                backgroundColor: '#F5F3E8',
-                borderRadius: '12px',
+                backgroundColor: 'rgba(245, 243, 232, 0.8)',
+                backdropFilter: 'blur(16px)',
+                WebkitBackdropFilter: 'blur(16px)',
                 padding: '32px',
+                border: '2px solid rgba(9, 45, 34, 0.1)',
               }}
             >
               <h3
@@ -304,11 +315,10 @@ export default function SobrePage() {
                 backgroundColor: '#FFD93D',
                 color: '#092D22',
                 padding: '20px 40px',
-                borderRadius: '8px',
                 fontSize: '18px',
                 fontWeight: 700,
-                boxShadow: '0 4px 12px rgba(255, 217, 61, 0.3)',
-                border: 'none',
+                boxShadow: '0 8px 24px rgba(255, 217, 61, 0.4)',
+                border: '2px solid #092D22',
                 cursor: 'pointer',
               }}
             >

@@ -69,9 +69,11 @@ export default function ContatoPage() {
                 <div className="flex items-start gap-4">
                   <div
                     style={{
-                      backgroundColor: '#F5F3E8',
+                      backgroundColor: 'rgba(245, 243, 232, 0.7)',
+                      backdropFilter: 'blur(12px)',
+                      WebkitBackdropFilter: 'blur(12px)',
                       padding: '12px',
-                      borderRadius: '8px',
+                      border: '2px solid rgba(9, 45, 34, 0.1)',
                     }}
                   >
                     <Phone className="w-6 h-6" style={{ color: '#0D4C3A' }} />
@@ -93,9 +95,11 @@ export default function ContatoPage() {
                 <div className="flex items-start gap-4">
                   <div
                     style={{
-                      backgroundColor: '#F5F3E8',
+                      backgroundColor: 'rgba(245, 243, 232, 0.7)',
+                      backdropFilter: 'blur(12px)',
+                      WebkitBackdropFilter: 'blur(12px)',
                       padding: '12px',
-                      borderRadius: '8px',
+                      border: '2px solid rgba(9, 45, 34, 0.1)',
                     }}
                   >
                     <Mail className="w-6 h-6" style={{ color: '#0D4C3A' }} />
@@ -117,9 +121,11 @@ export default function ContatoPage() {
                 <div className="flex items-start gap-4">
                   <div
                     style={{
-                      backgroundColor: '#F5F3E8',
+                      backgroundColor: 'rgba(245, 243, 232, 0.7)',
+                      backdropFilter: 'blur(12px)',
+                      WebkitBackdropFilter: 'blur(12px)',
                       padding: '12px',
-                      borderRadius: '8px',
+                      border: '2px solid rgba(9, 45, 34, 0.1)',
                     }}
                   >
                     <MapPin className="w-6 h-6" style={{ color: '#0D4C3A' }} />
@@ -144,9 +150,11 @@ export default function ContatoPage() {
                     rel="noopener noreferrer"
                     className="transition-all hover:bg-[#0D4C3A]"
                     style={{
-                      backgroundColor: '#F5F3E8',
+                      backgroundColor: 'rgba(245, 243, 232, 0.7)',
+                      backdropFilter: 'blur(12px)',
+                      WebkitBackdropFilter: 'blur(12px)',
                       padding: '12px',
-                      borderRadius: '8px',
+                      border: '2px solid rgba(9, 45, 34, 0.1)',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
@@ -161,9 +169,11 @@ export default function ContatoPage() {
                     rel="noopener noreferrer"
                     className="transition-all hover:bg-[#0D4C3A]"
                     style={{
-                      backgroundColor: '#F5F3E8',
+                      backgroundColor: 'rgba(245, 243, 232, 0.7)',
+                      backdropFilter: 'blur(12px)',
+                      WebkitBackdropFilter: 'blur(12px)',
                       padding: '12px',
-                      borderRadius: '8px',
+                      border: '2px solid rgba(9, 45, 34, 0.1)',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
@@ -180,8 +190,10 @@ export default function ContatoPage() {
             <div>
               <div
                 style={{
-                  backgroundColor: '#F5F3E8',
-                  borderRadius: '16px',
+                  backgroundColor: 'rgba(245, 243, 232, 0.9)',
+                  backdropFilter: 'blur(24px)',
+                  WebkitBackdropFilter: 'blur(24px)',
+                  border: '2px solid rgba(9, 45, 34, 0.1)',
                   padding: '48px',
                 }}
               >

@@ -283,7 +283,7 @@ export default function BlogPage() {
                   width: '100%',
                   height: '400px',
                   objectFit: 'cover',
-                  borderRadius: '16px',
+                  border: '3px solid rgba(255, 217, 61, 0.5)',
                   boxShadow: '0 20px 60px rgba(0, 0, 0, 0.15)',
                   marginBottom: '48px',
                 }}
@@ -321,11 +321,10 @@ export default function BlogPage() {
                     backgroundColor: '#FFD93D',
                     color: '#092D22',
                     padding: '20px 40px',
-                    borderRadius: '8px',
                     fontSize: '18px',
                     fontWeight: 700,
-                    boxShadow: '0 4px 12px rgba(255, 217, 61, 0.3)',
-                    border: 'none',
+                    boxShadow: '0 8px 24px rgba(255, 217, 61, 0.4)',
+                    border: '2px solid #092D22',
                     cursor: 'pointer',
                   }}
                 >

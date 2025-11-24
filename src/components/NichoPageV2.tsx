@@ -224,10 +224,10 @@ export default function NichoPageV2({ data }: NichoPageV2Props) {
                     backgroundColor: '#FFD93D',
                     color: '#092D22',
                     padding: '16px 32px',
-                    borderRadius: '8px',
                     fontSize: '16px',
                     fontWeight: 700,
-                    boxShadow: '0 4px 12px rgba(255, 217, 61, 0.3)',
+                    boxShadow: '0 8px 24px rgba(255, 217, 61, 0.4)',
+                    border: '2px solid #092D22',
                   }}
                 >
                   Ver produtos
@@ -245,7 +245,6 @@ export default function NichoPageV2({ data }: NichoPageV2Props) {
                     border: '2px solid #FFFFFF',
                     color: '#FFFFFF',
                     padding: '14px 30px',
-                    borderRadius: '8px',
                     fontSize: '16px',
                     fontWeight: 600,
                   }}
@@ -267,9 +266,10 @@ export default function NichoPageV2({ data }: NichoPageV2Props) {
                 className="w-full h-auto"
                 style={{
                   maxWidth: '540px',
-                  maxHeight: '400px',
+                  height: 'auto',
                   objectFit: 'cover',
-                  borderRadius: '16px',
+                  border: '3px solid rgba(255, 217, 61, 0.5)',
+                  boxShadow: '0 16px 48px rgba(0, 0, 0, 0.3)',
                 }}
               />
             </motion.div>
@@ -310,9 +310,10 @@ export default function NichoPageV2({ data }: NichoPageV2Props) {
                   }}
                   transition={{ duration: 0.3, ease: 'easeInOut' }}
                   style={{
-                    backgroundColor: '#FFFFFF',
-                    border: '1px solid #E8E6DC',
-                    borderRadius: '12px',
+                    backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                    backdropFilter: 'blur(20px)',
+                    WebkitBackdropFilter: 'blur(20px)',
+                    border: '2px solid rgba(9, 45, 34, 0.1)',
                     padding: '32px',
                     boxShadow: '0 2px 8px rgba(0, 0, 0, 0.04)',
                   }}
@@ -341,9 +342,9 @@ export default function NichoPageV2({ data }: NichoPageV2Props) {
                   </p>
                   <div
                     style={{
-                      backgroundColor: '#F5F3E8',
+                      backgroundColor: 'rgba(245, 243, 232, 0.6)',
                       padding: '12px 16px',
-                      borderRadius: '6px',
+                      border: '1px solid rgba(255, 217, 61, 0.3)',
                       borderLeft: '3px solid #FFD93D',
                     }}
                   >
@@ -416,9 +417,10 @@ export default function NichoPageV2({ data }: NichoPageV2Props) {
                   }}
                   transition={{ duration: 0.3 }}
                   style={{
-                    backgroundColor: '#FFFFFF',
-                    border: '2px solid #E8E6DC',
-                    borderRadius: '16px',
+                    backgroundColor: 'rgba(255, 255, 255, 0.9)',
+                    backdropFilter: 'blur(24px)',
+                    WebkitBackdropFilter: 'blur(24px)',
+                    border: '2px solid rgba(9, 45, 34, 0.12)',
                     padding: '40px',
                   }}
                 >
@@ -429,11 +431,11 @@ export default function NichoPageV2({ data }: NichoPageV2Props) {
                       backgroundColor: '#FFD93D',
                       color: '#092D22',
                       padding: '8px 20px',
-                      borderRadius: '24px',
                       fontSize: '12px',
                       fontWeight: 700,
                       textTransform: 'uppercase',
                       letterSpacing: '1px',
+                      border: '2px solid #092D22',
                     }}
                   >
                     {product.badge}
@@ -489,9 +491,9 @@ export default function NichoPageV2({ data }: NichoPageV2Props) {
                   <div
                     className="mb-4"
                     style={{
-                      backgroundColor: '#F5F3E8',
+                      backgroundColor: 'rgba(245, 243, 232, 0.6)',
                       padding: '12px 16px',
-                      borderRadius: '6px',
+                      border: '1px solid rgba(9, 45, 34, 0.1)',
                     }}
                   >
                     <p
@@ -528,7 +530,6 @@ export default function NichoPageV2({ data }: NichoPageV2Props) {
                       border: '2px solid #0D4C3A',
                       color: '#0D4C3A',
                       padding: '14px 30px',
-                      borderRadius: '8px',
                       fontSize: '16px',
                       fontWeight: 600,
                     }}
@@ -572,9 +573,10 @@ export default function NichoPageV2({ data }: NichoPageV2Props) {
                 <div
                   className="relative flex-1"
                   style={{
-                    backgroundColor: '#F5F3E8',
-                    border: '2px solid #E8E6DC',
-                    borderRadius: '12px',
+                    backgroundColor: 'rgba(245, 243, 232, 0.7)',
+                    backdropFilter: 'blur(16px)',
+                    WebkitBackdropFilter: 'blur(16px)',
+                    border: '2px solid rgba(232, 230, 220, 0.8)',
                     padding: '56px 24px 32px',
                   }}
                 >
@@ -585,7 +587,7 @@ export default function NichoPageV2({ data }: NichoPageV2Props) {
                       width: '48px',
                       height: '48px',
                       backgroundColor: '#FFD93D',
-                      borderRadius: '50%',
+                      border: '2px solid #092D22',
                       top: '-24px',
                       left: '50%',
                       transform: 'translateX(-50%)',
@@ -679,10 +681,11 @@ export default function NichoPageV2({ data }: NichoPageV2Props) {
                 <ScrollReveal key={idx} delay={idx * 0.1}>
                   <div
                     style={{
-                      backgroundColor: '#FFFFFF',
-                      borderRadius: '12px',
+                      backgroundColor: 'rgba(255, 255, 255, 0.85)',
+                      backdropFilter: 'blur(20px)',
+                      WebkitBackdropFilter: 'blur(20px)',
                       padding: '40px',
-                      border: '2px solid #E8E6DC',
+                      border: '2px solid rgba(9, 45, 34, 0.1)',
                     }}
                   >
                     <service.icon style={{ width: '48px', height: '48px', color: '#0D4C3A', marginBottom: '24px' }} />
@@ -714,7 +717,7 @@ export default function NichoPageV2({ data }: NichoPageV2Props) {
                               width: '6px',
                               height: '6px',
                               backgroundColor: '#FFD93D',
-                              borderRadius: '50%',
+                              border: '1px solid #092D22',
                               top: '10px',
                             }}
                           />
@@ -734,7 +737,6 @@ export default function NichoPageV2({ data }: NichoPageV2Props) {
                         border: '2px solid #0D4C3A',
                         color: '#0D4C3A',
                         padding: '14px 30px',
-                        borderRadius: '8px',
                         fontSize: '16px',
                         fontWeight: 600,
                         cursor: 'pointer',
@@ -791,9 +793,11 @@ export default function NichoPageV2({ data }: NichoPageV2Props) {
                 trackInitiateCheckout(`Formulário ${data.badgeName}`);
               }}
               style={{
-                backgroundColor: '#FFFFFF',
-                borderRadius: '12px',
+                backgroundColor: 'rgba(255, 255, 255, 0.95)',
+                backdropFilter: 'blur(24px)',
+                WebkitBackdropFilter: 'blur(24px)',
                 padding: '40px',
+                border: '2px solid rgba(9, 45, 34, 0.1)',
                 boxShadow: '0 8px 32px rgba(0, 0, 0, 0.12)',
               }}
             >
