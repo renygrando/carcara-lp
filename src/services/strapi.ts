@@ -4,24 +4,22 @@ const STRAPI_API_TOKEN = import.meta.env.VITE_STRAPI_API_TOKEN || '';
 
 export interface BlogPost {
   id: number;
-  attributes: {
-    title: string;
-    slug: string;
-    excerpt: string;
-    content: string;
-    coverImage?: {
-      data: {
-        attributes: {
-          url: string;
-          alternativeText?: string;
-        };
-      };
-    };
-    author?: string;
-    publishedAt: string;
-    createdAt: string;
-    updatedAt: string;
+  documentId: string;
+  title: string;
+  slug: string;
+  excerpt: string;
+  content: string;
+  coverImage?: {
+    id: number;
+    documentId: string;
+    url: string;
+    alternativeText?: string;
+    formats?: any;
   };
+  author?: string;
+  publishedAt: string;
+  createdAt: string;
+  updatedAt: string;
 }
 
 export interface BlogPostsResponse {

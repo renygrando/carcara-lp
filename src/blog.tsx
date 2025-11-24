@@ -88,11 +88,11 @@ export default function BlogPage() {
                     <div style={{ height: '240px', overflow: 'hidden' }}>
                       <img
                         src={
-                          post.attributes.coverImage?.data?.attributes?.url
-                            ? getStrapiMediaUrl(post.attributes.coverImage.data.attributes.url)
+                          post.coverImage?.url
+                            ? getStrapiMediaUrl(post.coverImage.url)
                             : blogImage
                         }
-                        alt={post.attributes.coverImage?.data?.attributes?.alternativeText || post.attributes.title}
+                        alt={post.coverImage?.alternativeText || post.title}
                         style={{
                           width: '100%',
                           height: '100%',
@@ -110,11 +110,11 @@ export default function BlogPage() {
                       <div className="flex items-center gap-4 mb-3" style={{ fontSize: '14px', color: '#666' }}>
                         <div className="flex items-center gap-1">
                           <Calendar className="w-4 h-4" />
-                          <span>{formatDate(post.attributes.publishedAt)}</span>
+                          <span>{formatDate(post.publishedAt)}</span>
                         </div>
                         <div className="flex items-center gap-1">
                           <Clock className="w-4 h-4" />
-                          <span>{calculateReadTime(post.attributes.content)}</span>
+                          <span>{calculateReadTime(post.content)}</span>
                         </div>
                       </div>
 
@@ -128,7 +128,7 @@ export default function BlogPage() {
                           lineHeight: '1.3',
                         }}
                       >
-                        {post.attributes.title}
+                        {post.title}
                       </h3>
 
                       {/* Excerpt */}
@@ -140,19 +140,19 @@ export default function BlogPage() {
                           marginBottom: '20px',
                         }}
                       >
-                        {post.attributes.excerpt}
+                        {post.excerpt}
                       </p>
 
                       {/* Autor (se disponível) */}
-                      {post.attributes.author && (
+                      {post.author && (
                         <p style={{ fontSize: '14px', color: '#666', marginBottom: '16px' }}>
-                          Por {post.attributes.author}
+                          Por {post.author}
                         </p>
                       )}
 
                       {/* Botão de leitura */}
                       <motion.a
-                        href={`/blog/${post.attributes.slug}`}
+                        href={`/blog/${post.slug}`}
                         whileHover={{ x: 5 }}
                         className="inline-flex items-center gap-2"
                         style={{
