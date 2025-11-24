@@ -6,6 +6,8 @@ import { SEO } from './components/SEO';
 import { Calendar, Clock, ArrowLeft } from 'lucide-react';
 import { motion } from 'motion/react';
 import { navigate } from './components/Router';
+import { marked } from 'marked';
+import DOMPurify from 'dompurify';
 
 interface BlogPostPageProps {
   params?: { slug?: string };
@@ -63,24 +65,22 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
   };
 
   const renderContent = (content: string) => {
-    // Usa marked + DOMPurify para converter Markdown seguro
+    if (!content) return null;
     try {
-      // Lazy import para não impactar bundle inicial
-      const { marked } = require('marked');
-      const DOMPurify = require('dompurify');
-      const html = marked.parse(content || '');
-      // Em ambientes SSR window pode não existir, aqui estamos em client
+      const html = marked.parse(content) as string;
       const clean = DOMPurify.sanitize(html);
       return <div style={{ fontSize: '18px', lineHeight: 1.7, color: '#1A1A1A' }} dangerouslySetInnerHTML={{ __html: clean }} />;
     } catch (e) {
-      // Fallback simples se libs não carregarem
-      return content
-        .split(/\n\n+/)
-        .map((chunk, i) => (
-          <p key={i} style={{ fontSize: '18px', lineHeight: 1.7, marginBottom: '20px', color: '#1A1A1A' }}>
-            {chunk.trim()}
-          </p>
-        ));
+      console.error('Markdown render error:', e);
+      return (
+        <div style={{ fontSize: '18px', lineHeight: 1.7, color: '#1A1A1A' }}>
+          {content.split(/\n\n+/).map((chunk, i) => (
+            <p key={i} style={{ marginBottom: '20px' }}>
+              {chunk.trim()}
+            </p>
+          ))}
+        </div>
+      );
     }
   };
 
