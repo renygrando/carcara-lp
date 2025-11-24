@@ -264,7 +264,7 @@ export default function HomePage() {
                 backgroundColor: '#092D22',
               }}>
                 <ImageWithFallback
-                  src="https://images.unsplash.com/photo-1612036782180-6f0b6cd846fe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjYXJjYXJhJTIwYmlyZHxlbnwwfHx8fDE3MzI0NzkwMDB8MA&ixlib=rb-4.1.0&q=80&w=1080"
+                  src="https://images.unsplash.com/photo-1566133636631-b35f0c7a6d69?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjYXJjYXJhJTIwZmx5aW5nfGVufDB8fHx8MTczMjQ3OTAwMHww&ixlib=rb-4.1.0&q=80&w=1080"
                   alt="Carcará - Visão estratégica e precisão"
                   style={{
                     width: '540px',
