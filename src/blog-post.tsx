@@ -69,13 +69,23 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
     try {
       const html = marked.parse(content) as string;
       const clean = DOMPurify.sanitize(html);
-      return <div style={{ fontSize: '18px', lineHeight: 1.7, color: '#1A1A1A' }} dangerouslySetInnerHTML={{ __html: clean }} />;
+      return (
+        <div 
+          className="blog-content"
+          style={{ 
+            fontSize: '18px', 
+            lineHeight: 1.8, 
+            color: '#1A1A1A',
+          }} 
+          dangerouslySetInnerHTML={{ __html: clean }} 
+        />
+      );
     } catch (e) {
       console.error('Markdown render error:', e);
       return (
-        <div style={{ fontSize: '18px', lineHeight: 1.7, color: '#1A1A1A' }}>
+        <div style={{ fontSize: '18px', lineHeight: 1.8, color: '#1A1A1A' }}>
           {content.split(/\n\n+/).map((chunk, i) => (
-            <p key={i} style={{ marginBottom: '20px' }}>
+            <p key={i} style={{ marginBottom: '24px' }}>
               {chunk.trim()}
             </p>
           ))}
@@ -86,9 +96,146 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
 
   return (
     <div className="min-h-screen bg-white" style={{ fontFamily: 'Inter, sans-serif', color: '#1A1A1A' }}>
+      <style>{`
+        .blog-content h1 {
+          font-size: 36px;
+          font-weight: 700;
+          color: #092D22;
+          margin-top: 48px;
+          margin-bottom: 24px;
+          line-height: 1.2;
+          letter-spacing: -0.5px;
+        }
+        .blog-content h2 {
+          font-size: 30px;
+          font-weight: 700;
+          color: #092D22;
+          margin-top: 40px;
+          margin-bottom: 20px;
+          line-height: 1.3;
+          letter-spacing: -0.3px;
+        }
+        .blog-content h3 {
+          font-size: 24px;
+          font-weight: 600;
+          color: #092D22;
+          margin-top: 32px;
+          margin-bottom: 16px;
+          line-height: 1.4;
+        }
+        .blog-content h4 {
+          font-size: 20px;
+          font-weight: 600;
+          color: #1A1A1A;
+          margin-top: 28px;
+          margin-bottom: 14px;
+          line-height: 1.4;
+        }
+        .blog-content p {
+          margin-bottom: 24px;
+          line-height: 1.8;
+        }
+        .blog-content ul, .blog-content ol {
+          margin-bottom: 24px;
+          padding-left: 28px;
+        }
+        .blog-content li {
+          margin-bottom: 12px;
+          line-height: 1.8;
+        }
+        .blog-content blockquote {
+          border-left: 4px solid #FFD93D;
+          padding: 20px 24px;
+          margin: 32px 0;
+          background: #F5F3E8;
+          border-radius: 8px;
+          font-style: italic;
+          color: #1A1A1A;
+        }
+        .blog-content blockquote p {
+          margin-bottom: 0;
+        }
+        .blog-content a {
+          color: #092D22;
+          font-weight: 600;
+          text-decoration: underline;
+          text-decoration-color: #FFD93D;
+          text-underline-offset: 3px;
+          text-decoration-thickness: 2px;
+          transition: all 0.2s ease;
+        }
+        .blog-content a:hover {
+          text-decoration-color: #092D22;
+        }
+        .blog-content img {
+          max-width: 100%;
+          height: auto;
+          border-radius: 12px;
+          margin: 32px 0;
+          box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+        }
+        .blog-content code {
+          background: #F5F3E8;
+          padding: 3px 8px;
+          border-radius: 4px;
+          font-family: 'Courier New', monospace;
+          font-size: 16px;
+          color: #092D22;
+        }
+        .blog-content pre {
+          background: #092D22;
+          color: #F5F3E8;
+          padding: 24px;
+          border-radius: 12px;
+          overflow-x: auto;
+          margin: 32px 0;
+          line-height: 1.6;
+        }
+        .blog-content pre code {
+          background: none;
+          padding: 0;
+          color: #F5F3E8;
+          font-size: 15px;
+        }
+        .blog-content strong {
+          font-weight: 700;
+          color: #092D22;
+        }
+        .blog-content em {
+          font-style: italic;
+        }
+        .blog-content hr {
+          border: none;
+          border-top: 2px solid #E5E5E5;
+          margin: 48px 0;
+        }
+        .blog-content table {
+          width: 100%;
+          border-collapse: collapse;
+          margin: 32px 0;
+          background: white;
+          border-radius: 8px;
+          overflow: hidden;
+          box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .blog-content th {
+          background: #092D22;
+          color: white;
+          padding: 16px;
+          text-align: left;
+          font-weight: 600;
+        }
+        .blog-content td {
+          padding: 14px 16px;
+          border-bottom: 1px solid #E5E5E5;
+        }
+        .blog-content tr:last-child td {
+          border-bottom: none;
+        }
+      `}</style>
       <Navbar currentPath="/blog" />
-      <section style={{ paddingTop: '140px', paddingBottom: '48px', backgroundColor: '#F5F3E8' }}>
-        <div className="max-w-[960px] mx-auto px-6 lg:px-12">
+      <section style={{ paddingTop: '140px', paddingBottom: '80px', backgroundColor: '#F5F3E8' }}>
+        <div className="max-w-[860px] mx-auto px-6 lg:px-12">
           <motion.button
             whileHover={{ x: -4 }}
             onClick={() => navigate('/blog')}
@@ -125,24 +272,26 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
             <>
               <h1
                 style={{
-                  fontSize: '54px',
+                  fontSize: '48px',
                   fontWeight: 700,
                   color: '#092D22',
-                  lineHeight: 1.1,
+                  lineHeight: 1.15,
                   letterSpacing: '-1px',
-                  marginBottom: '28px',
+                  marginBottom: '24px',
                 }}
               >
                 {post.title}
               </h1>
-              <div style={{ display: 'flex', gap: '16px', marginBottom: '32px', color: '#444', fontSize: '15px' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                  <Calendar className="w-4 h-4" /> {formatDate(post.publishedAt)}
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '20px', marginBottom: '40px', color: '#555', fontSize: '15px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <Calendar className="w-5 h-5" /> {formatDate(post.publishedAt)}
                 </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                  <Clock className="w-4 h-4" /> {calculateReadTime(post.content)}
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <Clock className="w-5 h-5" /> {calculateReadTime(post.content)}
                 </div>
-                {post.author && <div>Por {post.author}</div>}
+                {post.author && (
+                  <div style={{ fontWeight: 600, color: '#092D22' }}>Por {post.author}</div>
+                )}
               </div>
               {post.coverImage?.url && (
                 <img
@@ -150,64 +299,171 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
                   alt={post.coverImage.alternativeText || post.title}
                   style={{
                     width: '100%',
-                    maxHeight: '520px',
+                    maxHeight: '480px',
                     objectFit: 'cover',
-                    borderRadius: '20px',
-                    marginBottom: '48px',
-                    boxShadow: '0 16px 40px rgba(0,0,0,0.12)',
+                    borderRadius: '16px',
+                    marginBottom: '56px',
+                    boxShadow: '0 20px 60px rgba(0,0,0,0.15)',
                   }}
                 />
               )}
-              <article style={{ marginBottom: '56px' }}>{renderContent(post.content)}</article>
+              <article style={{ marginBottom: '64px' }}>{renderContent(post.content)}</article>
+              
+              {/* Call to Action */}
+              <div 
+                style={{ 
+                  background: 'linear-gradient(135deg, #F5F3E8 0%, #FFD93D 100%)',
+                  padding: '40px',
+                  borderRadius: '16px',
+                  marginBottom: '56px',
+                  textAlign: 'center',
+                }}
+              >
+                <h3 style={{ 
+                  fontSize: '24px', 
+                  fontWeight: 700, 
+                  color: '#092D22', 
+                  marginBottom: '16px' 
+                }}>
+                  Gostou do conteúdo?
+                </h3>
+                <p style={{ 
+                  fontSize: '16px', 
+                  color: '#1A1A1A', 
+                  marginBottom: '24px',
+                  lineHeight: 1.6,
+                }}>
+                  Agende um diagnóstico gratuito e descubra como a Carcará pode transformar seu negócio
+                </p>
+                <motion.a
+                  href="https://wa.me/553597640878"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.98 }}
+                  style={{
+                    display: 'inline-block',
+                    backgroundColor: '#092D22',
+                    color: 'white',
+                    padding: '16px 32px',
+                    borderRadius: '8px',
+                    fontSize: '16px',
+                    fontWeight: 700,
+                    textDecoration: 'none',
+                    boxShadow: '0 4px 12px rgba(9, 45, 34, 0.3)',
+                  }}
+                >
+                  Agendar diagnóstico gratuito
+                </motion.a>
+              </div>
+
               {/* Share buttons */}
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', marginBottom: '80px' }}>
-                <span style={{ fontWeight: 600, fontSize: '15px', color: '#092D22' }}>Compartilhar:</span>
-                <button
+              <div style={{ borderTop: '2px solid #E5E5E5', paddingTop: '32px', marginBottom: '80px' }}>
+                <span style={{ fontWeight: 600, fontSize: '16px', color: '#092D22', display: 'block', marginBottom: '16px' }}>
+                  Compartilhar este artigo:
+                </span>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px' }}>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px' }}>
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                   onClick={() => {
                     const url = window.location.href;
                     const text = encodeURIComponent(post.title);
                     window.open(`https://wa.me/?text=${text}%20${encodeURIComponent(url)}`, '_blank');
                   }}
-                  style={{ background: '#25D366', color: '#fff', border: 'none', padding: '10px 16px', borderRadius: '8px', cursor: 'pointer', fontWeight: 600 }}
+                  style={{ 
+                    background: '#25D366', 
+                    color: '#fff', 
+                    border: 'none', 
+                    padding: '12px 20px', 
+                    borderRadius: '8px', 
+                    cursor: 'pointer', 
+                    fontWeight: 600,
+                    fontSize: '15px',
+                  }}
                 >
                   WhatsApp
-                </button>
-                <button
+                </motion.button>
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                   onClick={() => {
                     const url = encodeURIComponent(window.location.href);
-                    const text = encodeURIComponent(post.title);
                     window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`, '_blank');
                   }}
-                  style={{ background: '#0A66C2', color: '#fff', border: 'none', padding: '10px 16px', borderRadius: '8px', cursor: 'pointer', fontWeight: 600 }}
+                  style={{ 
+                    background: '#0A66C2', 
+                    color: '#fff', 
+                    border: 'none', 
+                    padding: '12px 20px', 
+                    borderRadius: '8px', 
+                    cursor: 'pointer', 
+                    fontWeight: 600,
+                    fontSize: '15px',
+                  }}
                 >
                   LinkedIn
-                </button>
-                <button
+                </motion.button>
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                   onClick={() => {
                     const url = encodeURIComponent(window.location.href);
                     const text = encodeURIComponent(post.title);
                     window.open(`https://twitter.com/intent/tweet?text=${text}&url=${url}`, '_blank');
                   }}
-                  style={{ background: '#1D9BF0', color: '#fff', border: 'none', padding: '10px 16px', borderRadius: '8px', cursor: 'pointer', fontWeight: 600 }}
+                  style={{ 
+                    background: '#1D9BF0', 
+                    color: '#fff', 
+                    border: 'none', 
+                    padding: '12px 20px', 
+                    borderRadius: '8px', 
+                    cursor: 'pointer', 
+                    fontWeight: 600,
+                    fontSize: '15px',
+                  }}
                 >
                   X (Twitter)
-                </button>
-                <button
+                </motion.button>
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                   onClick={() => {
                     navigator.clipboard.writeText(window.location.href);
                     alert('Link copiado!');
                   }}
-                  style={{ background: '#FFD93D', color: '#092D22', border: 'none', padding: '10px 16px', borderRadius: '8px', cursor: 'pointer', fontWeight: 600 }}
+                  style={{ 
+                    background: '#FFD93D', 
+                    color: '#092D22', 
+                    border: 'none', 
+                    padding: '12px 20px', 
+                    borderRadius: '8px', 
+                    cursor: 'pointer', 
+                    fontWeight: 600,
+                    fontSize: '15px',
+                  }}
                 >
                   Copiar link
-                </button>
+                </motion.button>
                 {navigator.share && (
-                  <button
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
                     onClick={() => navigator.share({ title: post.title, text: post.excerpt || post.title, url: window.location.href })}
-                    style={{ background: '#092D22', color: '#fff', border: 'none', padding: '10px 16px', borderRadius: '8px', cursor: 'pointer', fontWeight: 600 }}
+                    style={{ 
+                      background: '#092D22', 
+                      color: '#fff', 
+                      border: 'none', 
+                      padding: '12px 20px', 
+                      borderRadius: '8px', 
+                      cursor: 'pointer', 
+                      fontWeight: 600,
+                      fontSize: '15px',
+                    }}
                   >
-                    Share API
-                  </button>
+                    Compartilhar
+                  </motion.button>
                 )}
               </div>
             </>
