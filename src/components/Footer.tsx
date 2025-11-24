@@ -3,12 +3,10 @@ import { Phone, Mail, MapPin, Linkedin, Instagram } from 'lucide-react';
 export default function Footer() {
   const nichoLinks = [
     { name: 'Gastronomia', href: '#/gastronomia' },
-    { name: 'E-commerce', href: '#/ecommerce' },
-    { name: 'Gestão Pública', href: '#/gestaopublica' },
-    { name: 'Indústria e Logística', href: '#/industria' },
-    { name: 'Agro e Agronegócio', href: '#/agro' },
-    { name: 'Política e Eleições', href: '#/politica' },
+    { name: 'IA na Fazenda', href: '#/agro' },
+    { name: 'Mumic política', href: '#/politica' },
     { name: 'Associações', href: '#/associacoes' },
+    { name: 'Personalizado', href: '#/personalizado' },
   ];
 
   return (
