@@ -644,6 +644,128 @@ export const industriaNichoV2: NichoDataV2 = {
   ],
 };
 
+// Página de automações personalizadas on-demand
+export const personalizadoNichoV2: NichoDataV2 = {
+  badgeName: 'AUTOMAÇÕES PERSONALIZADAS',
+  heroTitle: 'Automação sob medida para sua operação',
+  heroLead: 'Fluxos, integrações e agentes inteligentes construídos exatamente para o seu caso de uso — sem excesso, sem engessamento.',
+  heroImage: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+
+  problemsTitle: 'Quando o software pronto não resolve',
+  problems: [
+    {
+      icon: Puzzle,
+      title: 'Ferramentas desconectadas',
+      description: 'Operação espalhada entre múltiplos sistemas, planilhas e APIs sem conversar entre si. Perda de tempo e retrabalho diário.',
+      impact: 'Baixa eficiência e visão fragmentada dos dados',
+    },
+    {
+      icon: Brain,
+      title: 'Processos não padronizados',
+      description: 'Fluxos críticos dependem de pessoas chave e conhecimento tácito. Escalar ou treinar novos membros vira gargalo.',
+      impact: 'Risco operacional e dificuldade para crescer com previsibilidade',
+    },
+    {
+      icon: Bot,
+      title: 'Atendimento manual repetitivo',
+      description: 'Entradas constantes via WhatsApp, e-mail ou portal que poderiam ser triadas e resolvidas automaticamente.',
+      impact: 'Equipe sobrecarregada em tarefas de baixo valor',
+    },
+  ],
+
+  productsTitle: 'Construímos exatamente o que você precisa',
+  products: [
+    {
+      badge: 'AGENTE INTELIGENTE',
+      icon: Bot,
+      name: 'Agente Conversacional Custom',
+      description: 'Treinado com seus dados, integra com seus sistemas e executa tarefas reais — não apenas responde perguntas.',
+      features: [
+        'Ingestão de base documental e FAQ interno',
+        'Execução de rotinas (criar lead, abrir chamado, gerar relatório)',
+        'Orquestração de múltiplos canais (WhatsApp, e-mail, web)',
+        'Monitoramento e análise de conversas',
+        'Painel de acompanhamento em tempo real',
+      ],
+      deliveryFormat: 'Setup + evolução contínua',
+      pricing: 'Sob consulta',
+    },
+    {
+      badge: 'INTEGRAÇÕES & FLUXOS',
+      icon: RefreshCw,
+      name: 'Fluxos & Integrações',
+      description: 'Conexões entre APIs, ERPs, CRMs e serviços internos criando automações confiáveis e auditáveis.',
+      features: [
+        'Conectores custom sob demanda',
+        'ETL e saneamento de dados',
+        'Workflows event-driven',
+        'Alertas e notificações inteligentes',
+        'Logs e observabilidade centralizados',
+      ],
+      deliveryFormat: 'Projeto de implementação',
+      pricing: 'Sob consulta',
+    },
+    {
+      badge: 'DATA & DECISÃO',
+      icon: BarChart3,
+      name: 'Painéis Sob Medida',
+      description: 'Dashboards focados em indicadores operacionais reais, sem ruído e sem campos inúteis.',
+      features: [
+        'KPIs essenciais definidos em conjunto',
+        'Visões por área / etapa de processo',
+        'Alertas de anomalias / desvios',
+        'Exportação e API de dados agregados',
+        'Usuários e permissões avançadas',
+      ],
+      deliveryFormat: 'Setup + evolução',
+      pricing: 'Sob consulta',
+    },
+  ],
+
+  timeline: [
+    { icon: Search, title: 'Diagnóstico', description: 'Entendimento profundo do processo, fontes de dados e restrições.' },
+    { icon: Lightbulb, title: 'Prototipação Rápida', description: 'MVP funcional para validar fluxo e ROI esperado.' },
+    { icon: Wrench, title: 'Implementação Iterativa', description: 'Sprints curtos com entregas visíveis e feedback contínuo.' },
+    { icon: UserCheck, title: 'Entrega + Treinamento', description: 'Handoff estruturado, documentação e capacitação da equipe.' },
+    { icon: RefreshCw, title: 'Evolução Contínua', description: 'Ajustes baseados em uso real e novos objetivos.' },
+  ],
+
+  services: [
+    {
+      icon: Target,
+      title: 'Discovery & Arquitetura',
+      services: [
+        'Mapeamento de fluxo atual e pontos de ruptura',
+        'Desenho de arquitetura de automação',
+        'Plano de integrações prioritárias',
+        'Métrica de sucesso e ROI esperado',
+      ],
+      ctaText: 'Iniciar diagnóstico',
+    },
+    {
+      icon: Settings,
+      title: 'Implementação Técnica',
+      services: [
+        'Construção de conectores e pipelines',
+        'Desenvolvimento de agente inteligente',
+        'Configuração de painéis e observabilidade',
+        'Documentação operacional e handoff',
+      ],
+      ctaText: 'Falar com especialista',
+    },
+  ],
+
+  ctaTitle: 'Vamos construir o que falta na sua operação',
+  ctaSubtitle: 'Conte o desafio e devolvemos um plano enxuto de automação com impacto direto.',
+  productOptions: [
+    'Agente Conversacional',
+    'Integração Sistema X',
+    'Dashboard Personalizado',
+    'Workflow Automático',
+    'Ainda não sei, quero conversar',
+  ],
+};
+
 export const agroNichoV2: NichoDataV2 = {
   badgeName: 'AGRO E AGRONEGÓCIO',
   heroTitle: 'Gerencie sua fazenda direto do WhatsApp',

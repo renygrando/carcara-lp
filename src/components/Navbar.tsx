@@ -22,12 +22,11 @@ export default function Navbar({ currentPath = '/' }: NavbarProps) {
 
   const nichoLinks = [
     { name: 'Gastronomia', href: '#/gastronomia' },
-    { name: 'E-commerce', href: '#/ecommerce' },
     { name: 'Gestão Pública', href: '#/gestaopublica' },
-    { name: 'Indústria e Logística', href: '#/industria' },
     { name: 'Agro e Agronegócio', href: '#/agro' },
     { name: 'Política e Eleições', href: '#/politica' },
     { name: 'Associações', href: '#/associacoes' },
+    { name: 'Personalizado', href: '#/personalizado' },
   ];
 
   return (
