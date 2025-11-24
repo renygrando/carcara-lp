@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 
 export interface RouteConfig {
-  path: string;
-  component: React.ComponentType;
+  path: string; // pode conter segmentos dinâmicos ex: /blog/:slug
+  component: React.ComponentType<any>; // componentes podem receber props { params }
 }
 
 interface RouterProps {
@@ -30,14 +30,37 @@ export function Router({ routes, defaultRoute = '/' }: RouterProps) {
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, [defaultRoute]);
 
-  const route = routes.find((r) => r.path === currentPath);
-  const Component = route?.component || routes.find((r) => r.path === defaultRoute)?.component;
+  // Matching com suporte a parâmetros
+  let matched: RouteConfig | undefined;
+  let params: Record<string, string> = {};
+
+  for (const r of routes) {
+    if (r.path === currentPath) {
+      matched = r;
+      break;
+    }
+    if (r.path.includes(':')) {
+      const pattern = r.path
+        .split('/')
+        .map((seg) => (seg.startsWith(':') ? `(?<${seg.slice(1)}>[^/]+)` : seg))
+        .join('/');
+      const regex = new RegExp(`^${pattern}$`);
+      const m = regex.exec(currentPath);
+      if (m && m.groups) {
+        matched = r;
+        params = m.groups;
+        break;
+      }
+    }
+  }
+
+  const Component = matched?.component || routes.find((r) => r.path === defaultRoute)?.component;
 
   if (!Component) {
     return <div>404 - Página não encontrada</div>;
   }
 
-  return <Component />;
+  return <Component params={params} />;
 }
 
 export function navigate(path: string) {

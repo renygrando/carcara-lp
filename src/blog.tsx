@@ -3,25 +3,40 @@ import { motion } from 'motion/react';
 import { useEffect, useState } from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import { fetchBlogPosts, getStrapiMediaUrl, type BlogPost } from './services/strapi';
+import { fetchBlogPosts, getStrapiMediaUrl, resolveStrapiUrl, type BlogPost } from './services/strapi';
 
 export default function BlogPage() {
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
+  const [error, setError] = useState<string | null>(null);
+
+  // Diagnóstico: verificar se a URL configurada parece incorreta em produção
+  const strapiUrl = resolveStrapiUrl();
+  const isLikelyWrongUrl =
+    strapiUrl.includes('localhost') && typeof window !== 'undefined' && window.location.hostname !== 'localhost';
 
   useEffect(() => {
     const loadPosts = async () => {
       setLoading(true);
-      const response = await fetchBlogPosts(currentPage);
-      setPosts(response.data);
-      setTotalPages(response.meta.pagination.pageCount);
-      setLoading(false);
+      setError(null);
+      try {
+        console.debug('[Blog] STRAPI_URL em runtime:', strapiUrl);
+        const response = await fetchBlogPosts(currentPage);
+        setPosts(response.data);
+        setTotalPages(response.meta.pagination.pageCount);
+        if (response.data.length === 0 && isLikelyWrongUrl) {
+          setError('A URL do Strapi está apontando para localhost em produção. Verifique a variável VITE_STRAPI_URL no Easypanel.');
+        }
+      } catch (e: any) {
+        setError(e.message || 'Falha ao carregar posts');
+      } finally {
+        setLoading(false);
+      }
     };
-
     loadPosts();
-  }, [currentPage]);
+  }, [currentPage, strapiUrl, isLikelyWrongUrl]);
 
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
@@ -72,6 +87,16 @@ export default function BlogPage() {
           {loading ? (
             <div className="text-center">
               <p style={{ fontSize: '18px', color: '#1A1A1A' }}>Carregando posts...</p>
+            </div>
+          ) : error ? (
+            <div className="text-center max-w-2xl mx-auto">
+              <h2 style={{ fontSize: '32px', fontWeight: 700, color: '#092D22', marginBottom: '16px' }}>
+                Erro ao carregar posts
+              </h2>
+              <p style={{ fontSize: '16px', color: '#B30000', marginBottom: '24px' }}>{error}</p>
+              <p style={{ fontSize: '14px', color: '#666', marginBottom: '32px' }}>
+                Abra o console do navegador (F12) e procure pelos logs [Strapi] / [Blog] para confirmar a URL usada.
+              </p>
             </div>
           ) : posts.length > 0 ? (
             <>
@@ -152,7 +177,7 @@ export default function BlogPage() {
 
                       {/* Botão de leitura */}
                       <motion.a
-                        href={`/blog/${post.slug}`}
+                        href={`#/blog/${post.slug}`}
                         whileHover={{ x: 5 }}
                         className="inline-flex items-center gap-2"
                         style={{

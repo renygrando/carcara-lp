@@ -1,6 +1,17 @@
-// Configuração do Strapi
-const STRAPI_URL = import.meta.env.VITE_STRAPI_URL || 'http://localhost:1337';
-const STRAPI_API_TOKEN = import.meta.env.VITE_STRAPI_API_TOKEN || '';
+// Configuração do Strapi com fallback inteligente
+const RAW_STRAPI_URL: string = (import.meta.env.VITE_STRAPI_URL as string) || '';
+const STRAPI_API_TOKEN: string = (import.meta.env.VITE_STRAPI_API_TOKEN as string) || '';
+
+// Resolve a URL do Strapi em runtime. Se nenhuma env estiver definida e estivermos
+// em produção (domínio carcara.ai), utiliza o endpoint público.
+export const resolveStrapiUrl = (): string => {
+  if (RAW_STRAPI_URL) return RAW_STRAPI_URL.replace(/\/$/, '');
+  if (typeof window !== 'undefined') {
+    const host = window.location.hostname;
+    if (host.endsWith('carcara.ai')) return 'https://strapi.carcara.ai';
+  }
+  return 'http://localhost:1337';
+};
 
 export interface BlogPost {
   id: number;
@@ -38,26 +49,27 @@ export interface BlogPostsResponse {
 export const getStrapiMediaUrl = (url: string | undefined): string => {
   if (!url) return '';
   if (url.startsWith('http')) return url;
-  return `${STRAPI_URL}${url}`;
+  return `${resolveStrapiUrl()}${url}`;
 };
 
 // Buscar todos os posts
 export const fetchBlogPosts = async (page = 1, pageSize = 9): Promise<BlogPostsResponse> => {
   try {
-    const response = await fetch(
-      `${STRAPI_URL}/api/blog-posts?populate=*&pagination[page]=${page}&pagination[pageSize]=${pageSize}&sort=publishedAt:desc`,
-      {
-        headers: {
-          Authorization: `Bearer ${STRAPI_API_TOKEN}`,
-        },
-      }
-    );
-
-    if (!response.ok) {
-      throw new Error('Erro ao buscar posts do blog');
+    const url = `${resolveStrapiUrl()}/api/blog-posts?populate=*&pagination[page]=${page}&pagination[pageSize]=${pageSize}&sort=publishedAt:desc`;
+    const headers: Record<string, string> = {};
+    if (STRAPI_API_TOKEN) {
+      headers.Authorization = `Bearer ${STRAPI_API_TOKEN}`;
     }
 
-    return await response.json();
+    console.debug('[Strapi] Fetching posts', { url, hasToken: !!STRAPI_API_TOKEN });
+
+    const response = await fetch(url, { headers });
+    if (!response.ok) {
+      console.error('[Strapi] Response error', response.status, response.statusText);
+      throw new Error('Erro ao buscar posts do blog');
+    }
+    const json = await response.json();
+    return json;
   } catch (error) {
     console.error('Erro ao buscar posts:', error);
     return {
@@ -77,14 +89,9 @@ export const fetchBlogPosts = async (page = 1, pageSize = 9): Promise<BlogPostsR
 // Buscar um post específico por slug
 export const fetchBlogPostBySlug = async (slug: string): Promise<BlogPost | null> => {
   try {
-    const response = await fetch(
-      `${STRAPI_URL}/api/blog-posts?filters[slug][$eq]=${slug}&populate=*`,
-      {
-        headers: {
-          Authorization: `Bearer ${STRAPI_API_TOKEN}`,
-        },
-      }
-    );
+    const response = await fetch(`${resolveStrapiUrl()}/api/blog-posts?filters[slug][$eq]=${encodeURIComponent(slug)}&populate=*`, {
+      headers: STRAPI_API_TOKEN ? { Authorization: `Bearer ${STRAPI_API_TOKEN}` } : {},
+    });
 
     if (!response.ok) {
       throw new Error('Erro ao buscar post do blog');

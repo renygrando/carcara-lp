@@ -10,6 +10,7 @@ import PoliticaPageV2 from './politica-v2';
 import AssociacoesPageV2 from './associacoes-v2';
 import SobrePage from './sobre';
 import BlogPage from './blog';
+import BlogPostPage from './blog-post';
 import ContatoPage from './contato';
 import PrivacidadePage from './privacidade';
 import TermosPage from './termos';
@@ -26,6 +27,7 @@ const routes: RouteConfig[] = [
   { path: '/associacoes', component: AssociacoesPageV2 },
   { path: '/sobre', component: SobrePage },
   { path: '/blog', component: BlogPage },
+  { path: '/blog/:slug', component: BlogPostPage },
   { path: '/contato', component: ContatoPage },
   { path: '/privacidade', component: PrivacidadePage },
   { path: '/termos', component: TermosPage },
