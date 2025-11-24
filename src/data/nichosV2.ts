@@ -918,7 +918,7 @@ export const politicaNichoV2: NichoDataV2 = {
   badgeName: 'MUMIC POLÍTICA',
   heroTitle: 'Inteligência eleitoral e gestão pública conectadas',
   heroLead: 'Estruture campanha, mandato e atendimento ao cidadão em uma única plataforma de dados, automação e transparência.',
-  heroImage: 'https://images.unsplash.com/photo-1741244486182-c199906548d5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwb2xpdGljYWwlMjBjYW1wYWlnbiUyMHJhbGx5JTIwc3BlZWNofGVufDF8fHx8MTc2MjgxNDAxM3ww&ixlib=rb-4.1.0&q=80&w=1080',
+  heroImage: 'https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHw2fHxnb3Zlcm5tZW50JTIwYnVpbGRpbmclMjBjbGVhbnxlbnwxfHx8fDE3MzI0NzY4MDB8MA&ixlib=rb-4.1.0&q=80&w=1080',
   
   problemsTitle: 'Desafios de campanha, mandato e gestão cidadã',
   problems: [

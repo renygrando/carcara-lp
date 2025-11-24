@@ -300,7 +300,18 @@ export default function NichoPageV2({ data }: NichoPageV2Props) {
             </h2>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-[1120px] mx-auto">
+          <div 
+            className="max-w-[1120px] mx-auto"
+            style={{
+              display: 'grid',
+              gridTemplateColumns: data.problems.length === 3 
+                ? 'repeat(3, 1fr)' 
+                : data.problems.length === 6
+                ? 'repeat(3, 1fr)'
+                : 'repeat(auto-fit, minmax(300px, 1fr))',
+              gap: '32px',
+            }}
+          >
             {data.problems.map((problem, idx) => (
               <ScrollReveal key={idx} delay={idx * 0.1}>
                 <motion.div
@@ -316,6 +327,9 @@ export default function NichoPageV2({ data }: NichoPageV2Props) {
                     border: '2px solid rgba(9, 45, 34, 0.1)',
                     padding: '32px',
                     boxShadow: '0 2px 8px rgba(0, 0, 0, 0.04)',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    height: '100%',
                   }}
                 >
                   <problem.icon style={{ width: '48px', height: '48px', color: '#0D4C3A', marginBottom: '24px' }} />
@@ -422,6 +436,9 @@ export default function NichoPageV2({ data }: NichoPageV2Props) {
                     WebkitBackdropFilter: 'blur(24px)',
                     border: '2px solid rgba(9, 45, 34, 0.12)',
                     padding: '40px',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    height: '100%',
                   }}
                 >
                   {/* Badge */}
@@ -470,7 +487,7 @@ export default function NichoPageV2({ data }: NichoPageV2Props) {
                   </p>
 
                   {/* Features */}
-                  <div className="mb-8 space-y-3">
+                  <div className="mb-8 space-y-3" style={{ flexGrow: 1 }}>
                     {product.features.map((feature, fidx) => (
                       <div key={fidx} className="flex gap-3">
                         <Check className="flex-shrink-0" style={{ width: '20px', height: '20px', color: '#0D4C3A', marginTop: '2px' }} />
