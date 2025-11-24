@@ -43,9 +43,7 @@ Landing page principal do site com grid de nichos.
 
 **Nichos listados**:
 1. Gastronomia → `#/gastronomia`
-2. E-commerce → `#/ecommerce`
 3. Gestão Pública → `#/gestaopublica`
-4. Indústria → `#/industria` (Coming Soon)
 5. Agro → `#/agro` (Coming Soon)
 6. Política → `#/politica` (Coming Soon)
 
@@ -65,9 +63,7 @@ Ponto de entrada principal agora usa o Router.
 const routes = [
   { path: '/', component: HomePage },
   { path: '/gastronomia', component: GastronomiaPageV2 },
-  { path: '/ecommerce', component: EcommercePageV2 },
   { path: '/gestaopublica', component: GestaoPublicaPageV2 },
-  { path: '/industria', component: ComingSoonPage },
   { path: '/agro', component: ComingSoonPage },
   { path: '/politica', component: ComingSoonPage },
 ];
@@ -83,7 +79,7 @@ Atualizado todos os links para usar hash routing.
 
 **Links atualizados**:
 - Logo: `href="#/"`
-- Nichos dropdown: `href="#/gastronomia"`, `href="#/ecommerce"`, etc.
+- Nichos dropdown: atualizado removendo E-commerce e Indústria; adicionado Personalizado
 - Menu: `href="#/sobre"`, `href="#/casos"`, `href="#/blog"`, `href="#/contato"`
 - Footer nichos: todos com hash `#/`
 - Footer empresa: todos com hash `#/`
@@ -97,9 +93,7 @@ Atualizado todos os links para usar hash routing.
 |------|-----------|---------|--------|
 | `/` | HomePage | `/home.tsx` | ✅ Pronto |
 | `/gastronomia` | GastronomiaPageV2 | `/gastronomia-v2.tsx` | ✅ Pronto |
-| `/ecommerce` | EcommercePageV2 | `/ecommerce-v2.tsx` | ✅ Pronto |
 | `/gestaopublica` | GestaoPublicaPageV2 | `/gestaopublica-v2.tsx` | ✅ Pronto |
-| `/industria` | ComingSoonPage | App.tsx (inline) | 🚧 Coming Soon |
 | `/agro` | ComingSoonPage | App.tsx (inline) | 🚧 Coming Soon |
 | `/politica` | ComingSoonPage | App.tsx (inline) | 🚧 Coming Soon |
 
@@ -122,7 +116,7 @@ Atualizado todos os links para usar hash routing.
 <a href="#/gastronomia">Gastronomia</a>
 
 <!-- Botão que navega -->
-<button onClick={() => navigate('/ecommerce')}>
+<!-- Removido botão de navegação para /ecommerce -->
   Ver E-commerce
 </button>
 ```
@@ -191,7 +185,7 @@ Landing (/)
 Gastronomia (/gastronomia)
   → Header > Nichos ▼
   → Click E-commerce
-  → E-commerce (/ecommerce)
+  → Personalizado (/personalizado)
 ```
 
 ### 3. Retornar ao Home
@@ -303,7 +297,7 @@ Home (/)
 
 ### Exemplo: Adicionar Indústria V2
 ```tsx
-// 1. Criar /industria-v2.tsx
+// Removido plano de criação de /industria-v2.tsx
 import NichoPageV2 from './components/NichoPageV2';
 import { industriaNichoV2 } from './data/nichosV2';
 
@@ -312,11 +306,11 @@ export default function IndustriaPageV2() {
 }
 
 // 2. Atualizar /App.tsx
-import IndustriaPageV2 from './industria-v2';
+// import IndustriaPageV2 removido
 
 const routes = [
   // ... outras rotas
-  { path: '/industria', component: IndustriaPageV2 }, // ✅ Substituir ComingSoonPage
+  // Rota /industria removida
 ];
 ```
 
@@ -336,7 +330,7 @@ const routes = [
 
 ### Navegação Manual
 ```
-/ → /gastronomia → /ecommerce → / → /industria → / ✅
+/ → /gastronomia → /politica → /personalizado → / ✅
 ```
 
 ## Próximos Passos

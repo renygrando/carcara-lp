@@ -137,9 +137,9 @@
 const routes: RouteConfig[] = [
   { path: '/', component: HomePage },
   { path: '/gastronomia', component: GastronomiaPageV2 },
-  { path: '/ecommerce', component: EcommercePageV2 },
   { path: '/gestaopublica', component: GestaoPublicaPageV2 },
-  { path: '/industria', component: IndustriaPageV2 },
+  // Rotas /ecommerce e /industria removidas na limpeza
+  { path: '/personalizado', component: PersonalizadoPageV2 },
   { path: '/agro', component: AgroPageV2 },
   { path: '/politica', component: PoliticaPageV2 },
   { path: '/sobre', component: SobrePage },      // ✅ NOVA

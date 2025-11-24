@@ -5,7 +5,7 @@
 ### Páginas Atualizadas
 - ✅ `/home.tsx` - 100% conforme Design System
 - ✅ `/components/NichoPageV2.tsx` - 100% conforme Design System
-- ✅ Todas as páginas V2 (gastronomia, ecommerce, gestaopublica) - 100% conforme
+- ✅ Páginas ativas V2 (gastronomia, gestaopublica, agro, politica, personalizado) - 100% conforme
 
 ---
 

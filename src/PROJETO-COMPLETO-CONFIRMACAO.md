@@ -1,6 +1,6 @@
 # 🎉 PROJETO CARCARÁ LANDING PAGE - 100% COMPLETO
 
-## ✅ TODOS OS 6 NICHOS IMPLEMENTADOS COM SUCESSO!
+## ✅ NICHOS ATIVOS APÓS LIMPEZA (5) — E-commerce e Indústria removidos
 
 ---
 
@@ -11,11 +11,10 @@
 | # | Nicho | Arquivo | Status | Conformidade | Produtos | Dropdown | Características Especiais |
 |---|-------|---------|--------|--------------|----------|----------|---------------------------|
 | 1 | **Gastronomia** | `/gastronomia-v2.tsx` | ✅ 100% | Template Base | 3 | 5 | Tom comercial, foco em delivery |
-| 2 | **E-commerce** | `/ecommerce-v2.tsx` | ✅ 100% | Template Base | 3 | 5 | Tom digital, foco em conversão |
-| 3 | **Gestão Pública** | `/gestaopublica-v2.tsx` | ✅ 100% | Template Base | 3 | 5 | Tom institucional, transparência |
-| 4 | **Indústria** | `/industria-v2.tsx` | ✅ 100% | Template Base | 3 | 5 | Tom técnico, integração ERP |
-| 5 | **Agro** | `/agro-v2.tsx` | ✅ 100% | Template Base | 3 | 5 | Tom acessível, WhatsApp first |
-| 6 | **Política** | `/politica-v2.tsx` | ✅ 100% | Customizado | **4** | **7** | Duplo público, Mumic Política |
+| 2 | **Gestão Pública** | `/gestaopublica-v2.tsx` | ✅ 100% | Template Base | 3 | 5 | Tom institucional, transparência |
+| 3 | **Agro** | `/agro-v2.tsx` | ✅ 100% | Template Base | 3 | 5 | Tom acessível, WhatsApp first |
+| 4 | **Política** | `/politica-v2.tsx` | ✅ 100% | Customizado | **4** | **7** | Duplo público, Mumic Política |
+| 5 | **Personalizado** | `/personalizado.tsx` | ✅ 100% | Customizado | 3 | 5 | Automação sob demanda |
 
 **Home Page**: `/home.tsx` ✅ Completa e integrada
 
@@ -27,15 +26,14 @@
 
 ```
 /
-├── App.tsx                           # ✅ Router principal com todas as 6 rotas
+├── App.tsx                           # ✅ Router principal com rotas atuais
 ├── home.tsx                          # ✅ Home page com cards para cada nicho
 │
 ├── gastronomia-v2.tsx               # ✅ Página Gastronomia
-├── ecommerce-v2.tsx                 # ✅ Página E-commerce
 ├── gestaopublica-v2.tsx             # ✅ Página Gestão Pública
-├── industria-v2.tsx                 # ✅ Página Indústria e Logística
 ├── agro-v2.tsx                      # ✅ Página Agro e Agronegócio
 ├── politica-v2.tsx                  # ✅ Página Política (customizada)
+├── personalizado.tsx                # ✅ Página Automações Personalizadas
 │
 ├── components/
 │   ├── NichoPageV2.tsx              # ✅ Template base reutilizável
