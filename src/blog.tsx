@@ -128,7 +128,7 @@ export default function BlogPage() {
                 {posts.map((post) => (
                   <motion.a
                     key={post.id}
-                    href={`#/blog/${post.slug || post.documentId}`}
+                    href={`/blog/${post.slug || post.documentId}`}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 block"

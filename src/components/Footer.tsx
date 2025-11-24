@@ -2,11 +2,11 @@ import { Phone, Mail, MapPin, Linkedin, Instagram } from 'lucide-react';
 
 export default function Footer() {
   const nichoLinks = [
-    { name: 'Gastronomia', href: '#/gastronomia' },
-    { name: 'IA na Fazenda', href: '#/agro' },
-    { name: 'Mumic política', href: '#/politica' },
-    { name: 'Associações', href: '#/associacoes' },
-    { name: 'Personalizado', href: '#/personalizado' },
+    { name: 'Gastronomia', href: '/gastronomia' },
+    { name: 'IA na Fazenda', href: '/agro' },
+    { name: 'Mumic política', href: '/politica' },
+    { name: 'Associações', href: '/associacoes' },
+    { name: 'Personalizado', href: '/personalizado' },
   ];
 
   return (
