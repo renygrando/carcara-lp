@@ -3,7 +3,6 @@ import { Router, RouteConfig } from './components/Router';
 import HomePage from './home';
 import GastronomiaPageV2 from './gastronomia-v2';
 // Removed E-commerce and Indústria pages (retiradas)
-import GestaoPublicaPageV2 from './gestaopublica-v2';
 import PersonalizadoPageV2 from './personalizado';
 import AgroPageV2 from './agro-v2';
 import PoliticaPageV2 from './politica-v2';
@@ -19,7 +18,6 @@ import { initMetaPixel } from './utils/metaPixel';
 const routes: RouteConfig[] = [
   { path: '/', component: HomePage },
   { path: '/gastronomia', component: GastronomiaPageV2 },
-  { path: '/gestaopublica', component: GestaoPublicaPageV2 },
   { path: '/personalizado', component: PersonalizadoPageV2 },
   { path: '/agro', component: AgroPageV2 },
   { path: '/politica', component: PoliticaPageV2 },

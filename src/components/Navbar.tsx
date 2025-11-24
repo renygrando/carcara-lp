@@ -22,9 +22,8 @@ export default function Navbar({ currentPath = '/' }: NavbarProps) {
 
   const nichoLinks = [
     { name: 'Gastronomia', href: '#/gastronomia' },
-    { name: 'Gestão Pública', href: '#/gestaopublica' },
-    { name: 'Agro e Agronegócio', href: '#/agro' },
-    { name: 'Política e Eleições', href: '#/politica' },
+    { name: 'IA na Fazenda', href: '#/agro' },
+    { name: 'Mumic política', href: '#/politica' },
     { name: 'Associações', href: '#/associacoes' },
     { name: 'Personalizado', href: '#/personalizado' },
   ];

@@ -350,6 +350,7 @@ export const ecommerceNichoV2: NichoDataV2 = {
   ],
 };
 
+// Conteúdo de Gestão Pública será incorporado em Mumic política; objeto mantido apenas para referência futura (não usado em rotas)
 export const gestaopublicaNichoV2: NichoDataV2 = {
   badgeName: 'GESTÃO PÚBLICA',
   heroTitle: 'Tecnologia que aproxima governo e cidadão',
@@ -767,9 +768,9 @@ export const personalizadoNichoV2: NichoDataV2 = {
 };
 
 export const agroNichoV2: NichoDataV2 = {
-  badgeName: 'AGRO E AGRONEGÓCIO',
-  heroTitle: 'Gerencie sua fazenda direto do WhatsApp',
-  heroLead: 'Registre produção, controle insumos e tome decisões com dados reais — tudo de forma simples e acessível, sem complicação tecnológica.',
+  badgeName: 'IA NA FAZENDA',
+  heroTitle: 'IA na Fazenda: gestão inteligente pelo WhatsApp',
+  heroLead: 'Automatize registros de produção, insumos e tarefas. Decisões com dados reais sem sistema complexo ou burocracia.',
   heroImage: 'https://images.unsplash.com/photo-1597474417024-3ca3baa9fb13?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmYXJtZXIlMjBzbWFydHBob25lJTIwYWdyaWN1bHR1cmUlMjBmaWVsZHxlbnwxfHx8fDE3NjI4MTM3NTl8MA&ixlib=rb-4.1.0&q=80&w=1080',
   
   problemsTitle: 'Os desafios que produtores rurais enfrentam todos os dias',
@@ -914,12 +915,12 @@ export const agroNichoV2: NichoDataV2 = {
 };
 
 export const politicaNichoV2: NichoDataV2 = {
-  badgeName: 'POLÍTICA E ELEIÇÕES | MUMIC POLÍTICA',
-  heroTitle: 'Inteligência eleitoral e gestão de mandato',
-  heroLead: 'CRM inteligente, comunicação automatizada e transparência digital para candidatos e políticos eleitos. Dados que transformam campanha em resultado.',
+  badgeName: 'MUMIC POLÍTICA',
+  heroTitle: 'Inteligência eleitoral e gestão pública conectadas',
+  heroLead: 'Estruture campanha, mandato e atendimento ao cidadão em uma única plataforma de dados, automação e transparência.',
   heroImage: 'https://images.unsplash.com/photo-1741244486182-c199906548d5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwb2xpdGljYWwlMjBjYW1wYWlnbiUyMHJhbGx5JTIwc3BlZWNofGVufDF8fHx8MTc2MjgxNDAxM3ww&ixlib=rb-4.1.0&q=80&w=1080',
   
-  problemsTitle: 'Os desafios que candidatos e mandatos enfrentam',
+  problemsTitle: 'Desafios de campanha, mandato e gestão cidadã',
   problems: [
     {
       icon: BookUser,
@@ -939,9 +940,28 @@ export const politicaNichoV2: NichoDataV2 = {
       description: 'Não sabe qual bairro mais engaja, qual pauta ressoa, quem são os influenciadores locais. Campanha sem inteligência, decisões baseadas em intuição.',
       impact: 'Decisões eleitorais sem base em dados concretos',
     },
+    // Incorporando desafios de gestão pública
+    {
+      icon: PhoneOff,
+      title: 'Cidadão sem resposta',
+      description: 'Protocolos sem acompanhamento e atendimento fragmentado entre secretarias. Dificuldade de priorizar e responder com agilidade.',
+      impact: 'Satisfação e confiança pública reduzidas',
+    },
+    {
+      icon: Hourglass,
+      title: 'Processos manuais lentos',
+      description: 'Fluxos críticos em papel e sistemas não integrados atrasam decisões e execução de políticas.',
+      impact: 'Gestão reativa e sem previsibilidade',
+    },
+    {
+      icon: EyeOff,
+      title: 'Baixa transparência institucional',
+      description: 'Portais desatualizados e indicadores dispersos dificultam prestação de contas e engajamento cidadão.',
+      impact: 'Desconfiança e menor engajamento social',
+    },
   ],
   
-  productsTitle: 'Produtos especializados para Política',
+  productsTitle: 'Módulos da plataforma Mumic Política',
   products: [
     {
       badge: 'CRM ELEITORAL',
@@ -1007,73 +1027,118 @@ export const politicaNichoV2: NichoDataV2 = {
       deliveryFormat: 'Projeto único consultivo',
       pricing: 'Sob consulta',
     },
+    // Módulos incorporados de Gestão Pública
+    {
+      badge: 'ATENDIMENTO CIDADÃO',
+      icon: Building2,
+      name: 'Carcará Gestão Pública',
+      description: 'Agente inteligente multicanal para dúvidas, protocolos e direcionamento rápido entre secretarias.',
+      features: [
+        'Atendimento automatizado 24/7',
+        'Abertura e acompanhamento de protocolos',
+        'Direcionamento inteligente de demandas',
+        'Base de conhecimento integrada',
+        'Relatórios por região e tema',
+      ],
+      deliveryFormat: 'Setup único + mensalidade',
+      pricing: 'Sob consulta',
+    },
+    {
+      badge: 'TRANSPARÊNCIA DIGITAL',
+      icon: Eye,
+      name: 'Painel de Transparência',
+      description: 'Dashboard público com projetos, indicadores e execução em tempo real integrando múltiplas fontes.',
+      features: [
+        'Indicadores consolidados',
+        'Visualização de obras e projetos',
+        'Integrações automáticas',
+        'Relatórios acessíveis ao cidadão',
+        'Atualização contínua',
+      ],
+      deliveryFormat: 'Projeto de implementação',
+      pricing: 'Sob consulta',
+    },
+    {
+      badge: 'GESTÃO DE DEMANDAS',
+      icon: Database,
+      name: 'CRM Cidadão',
+      description: 'Registro e acompanhamento inteligente de demandas da população com distribuição automática.',
+      features: [
+        'Registro multicanal automático',
+        'Classificação por urgência e tipo',
+        'Distribuição por área responsável',
+        'Monitoramento de SLA',
+        'Notificações ao cidadão',
+      ],
+      deliveryFormat: 'Projeto + mensalidade',
+      pricing: 'Sob consulta',
+    },
   ],
   
   timeline: [
     {
       number: '1',
       icon: Search,
-      title: 'Diagnóstico',
-      description: 'Analisamos sua base atual, mapeamos território eleitoral e identificamos oportunidades de comunicação e engajamento.',
-      timeframe: 'Semana 1',
+      title: 'Diagnóstico Unificado',
+      description: 'Mapeamos base eleitoral, demandas cidadãs e indicadores institucionais para definir prioridades.',
+      timeframe: 'Semana 1-2',
     },
     {
       number: '2',
       icon: Settings,
-      title: 'Planejamento',
-      description: 'Estruturamos CRM, definimos segmentações, criamos fluxos de comunicação e estratégias de engajamento personalizadas.',
-      timeframe: 'Semana 1-2',
+      title: 'Planejamento Integrado',
+      description: 'Estruturamos CRM eleitoral e cidadão, segmentações, fluxos de comunicação e painéis.',
+      timeframe: 'Semana 2-3',
     },
     {
       number: '3',
       icon: CheckCircle,
-      title: 'Implementação',
-      description: 'Implementamos ferramentas, importamos base existente, treinamos equipe e validamos todos os fluxos antes da campanha.',
-      timeframe: 'Semana 2-3',
+      title: 'Implementação & Integrações',
+      description: 'Importamos bases, ativamos automações eleitorais e cidadãs e configuramos dashboards de mandato.',
+      timeframe: 'Semana 3-5',
     },
     {
       number: '4',
       icon: TrendingUp,
-      title: 'Acompanhamento',
-      description: 'Durante a campanha ou mandato, monitoramos dados, otimizamos comunicação e ajustamos estratégias em tempo real.',
-      timeframe: 'Durante campanha ou mandato',
+      title: 'Evolução Contínua',
+      description: 'Monitoramos engajamento, demandas, indicadores públicos e otimizamos estratégias em tempo real.',
+      timeframe: 'Contínuo',
     },
   ],
   
   services: [
     {
       icon: UserCheck,
-      title: 'Consultoria e Estratégia',
+      title: 'Consultoria Estratégica Integrada',
       services: [
-        'Diagnóstico eleitoral completo',
-        'Análise de território e base',
-        'Plano estratégico de campanha',
-        'Auditoria de comunicação digital',
+        'Diagnóstico eleitoral e cidadão',
+        'Mapeamento de território e demandas',
+        'Plano estratégico de campanha e mandato',
+        'Estruturação de indicadores públicos',
       ],
       ctaText: 'Solicitar consultoria',
     },
     {
       icon: Puzzle,
-      title: 'Implementação Customizada',
+      title: 'Implementação Técnica',
       services: [
-        'Estruturação completa de CRM',
-        'Automações personalizadas de campanha',
-        'Dashboards exclusivos de mandato',
-        'Treinamento de equipe política',
+        'CRM eleitoral e cidadão',
+        'Automações de campanha e atendimento',
+        'Dashboard de mandato e transparência',
+        'Treinamento de equipes',
       ],
       ctaText: 'Falar com especialista',
     },
   ],
   
-  ctaTitle: 'Transforme dados em votos e engajamento',
-  ctaSubtitle: 'Agende uma conversa estratégica e descubra como tecnologia pode amplificar sua presença política.',
+  ctaTitle: 'Una campanha, mandato e cidadania em um só lugar',
+  ctaSubtitle: 'Converse e receba um plano enxuto de implementação Mumic Política.',
   productOptions: [
-    'CRM Eleitoral',
+    'CRM Eleitoral Inteligente',
     'Agente Conversacional',
-    'Dashboard de Mandato',
-    'Diagnóstico Eleitoral',
-    'Sou candidato, quero estruturar campanha',
-    'Sou político eleito, quero gerir mandato',
+    'Painel Transparência',
+    'Dashboard Mandato',
+    'Diagnóstico Integrado',
     'Ainda não sei, quero conversar',
   ],
 };
