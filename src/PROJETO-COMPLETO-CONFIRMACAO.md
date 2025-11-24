@@ -11,9 +11,8 @@
 | # | Nicho | Arquivo | Status | Conformidade | Produtos | Dropdown | Características Especiais |
 |---|-------|---------|--------|--------------|----------|----------|---------------------------|
 | 1 | **Gastronomia** | `/gastronomia-v2.tsx` | ✅ 100% | Template Base | 3 | 5 | Tom comercial, foco em delivery |
-| 2 | **Gestão Pública** | `/gestaopublica-v2.tsx` | ✅ 100% | Template Base | 3 | 5 | Tom institucional, transparência |
-| 3 | **Agro** | `/agro-v2.tsx` | ✅ 100% | Template Base | 3 | 5 | Tom acessível, WhatsApp first |
-| 4 | **Política** | `/politica-v2.tsx` | ✅ 100% | Customizado | **4** | **7** | Duplo público, Mumic Política |
+| 2 | **IA na Fazenda** | `/agro-v2.tsx` | ✅ 100% | Template Base | 3 | 5 | Gestão rural inteligente via WhatsApp |
+| 3 | **Mumic política** | `/politica-v2.tsx` | ✅ 100% | Customizado | **7** | **10** | Campanha + mandato + cidadania integrados |
 | 5 | **Personalizado** | `/personalizado.tsx` | ✅ 100% | Customizado | 3 | 5 | Automação sob demanda |
 
 **Home Page**: `/home.tsx` ✅ Completa e integrada
@@ -30,9 +29,8 @@
 ├── home.tsx                          # ✅ Home page com cards para cada nicho
 │
 ├── gastronomia-v2.tsx               # ✅ Página Gastronomia
-├── gestaopublica-v2.tsx             # ✅ Página Gestão Pública
-├── agro-v2.tsx                      # ✅ Página Agro e Agronegócio
-├── politica-v2.tsx                  # ✅ Página Política (customizada)
+├── agro-v2.tsx                      # ✅ Página IA na Fazenda
+├── politica-v2.tsx                  # ✅ Página Mumic política (campanha/mandato)
 ├── personalizado.tsx                # ✅ Página Automações Personalizadas
 │
 ├── components/
@@ -50,10 +48,8 @@
     ├── DESIGN-SYSTEM-CONSOLIDADO.md
     ├── GASTRONOMIA-V2-README.md
     ├── ECOMMERCE-V2-CONFIRMACAO.md
-    ├── GESTAOPUBLICA-V2-CONFIRMACAO.md
-    ├── INDUSTRIA-V2-CONFIRMACAO.md
-    ├── AGRO-V2-CONFIRMACAO.md
-    └── POLITICA-V2-CONFIRMACAO.md
+   ├── AGRO-V2-CONFIRMACAO.md (renomear para IA-NA-FAZENDA-CONFIRMACAO.md)
+   └── POLITICA-V2-CONFIRMACAO.md (inclui conteúdo de gestão pública)
 ```
 
 ---

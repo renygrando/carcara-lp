@@ -17,6 +17,7 @@ import {
 import { navigate } from './components/Router';
 import { ImageWithFallback } from './components/figma/ImageWithFallback';
 import Navbar from './components/Navbar';
+import { SEO } from './components/SEO';
 import Footer from './components/Footer';
 import { trackViewContent, trackCTAClick, trackWhatsAppClick, trackSchedule } from './utils/metaPixel';
 
@@ -92,6 +93,12 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-white" style={{ fontFamily: 'Inter, sans-serif', color: '#1A1A1A' }}>
       <Navbar currentPath="/" />
+      <SEO
+        title="Carcará – IA aplicada a automações e operações"
+        description="Consultoria e plataforma de inteligência artificial: automações sob medida, agentes conversacionais, dashboards e operação inteligente (Mumic política, IA na Fazenda, Gastronomia, Associações e mais)."
+        image="https://www.carcara.ai/og-default.png"
+        type="website"
+      />
 
       {/* Hero Section */}
       <section

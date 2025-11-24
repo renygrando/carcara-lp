@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { Phone, Mail, MapPin, Linkedin, Instagram } from 'lucide-react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import { SEO } from './components/SEO';
 import { trackContact, trackViewContent, trackFormStart } from './utils/metaPixel';
 
 export default function ContatoPage() {
@@ -27,6 +28,11 @@ export default function ContatoPage() {
   return (
     <div className="min-h-screen bg-white" style={{ fontFamily: 'Inter, sans-serif', color: '#1A1A1A' }}>
       <Navbar currentPath="/contato" />
+      <SEO
+        title="Contato – Fale com a Carcará"
+        description="Agende diagnóstico ou tire dúvidas sobre automações, IA na Fazenda, Mumic política, Gastronomia e soluções personalizadas."
+        image="https://www.carcara.ai/og-default.png"
+      />
 
       {/* Hero */}
       <section style={{ paddingTop: '160px', paddingBottom: '64px', backgroundColor: '#F5F3E8' }}>

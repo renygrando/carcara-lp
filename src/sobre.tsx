@@ -6,6 +6,7 @@ import {
 import { motion } from 'motion/react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import { SEO } from './components/SEO';
 
 export default function SobrePage() {
   const heroImage = 'https://images.unsplash.com/photo-1630487656049-6db93a53a7e9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxidXNpbmVzcyUyMHRlYW0lMjBtZWV0aW5nJTIwb2ZmaWNlfGVufDF8fHx8MTc2MjczNzg4OHww&ixlib=rb-4.1.0&q=80&w=1080';
@@ -13,6 +14,12 @@ export default function SobrePage() {
   return (
     <div className="min-h-screen bg-white" style={{ fontFamily: 'Inter, sans-serif', color: '#1A1A1A' }}>
       <Navbar currentPath="/sobre" />
+      <SEO
+        title="Sobre a Carcará – IA aplicada a negócios reais"
+        description="Consultoria e desenvolvimento de automações inteligentes: campanha política (Mumic), gestão rural (IA na Fazenda), gastronomia, associações e soluções sob medida."
+        image={heroImage}
+        type="website"
+      />
 
       {/* Hero Section */}
       <section style={{ paddingTop: '160px', paddingBottom: '80px' }}>

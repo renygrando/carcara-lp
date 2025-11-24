@@ -1,10 +1,16 @@
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import { SEO } from './components/SEO';
 
 export default function TermosPage() {
   return (
     <div className="min-h-screen bg-white" style={{ fontFamily: 'Inter, sans-serif', color: '#1A1A1A' }}>
       <Navbar currentPath="/termos" />
+      <SEO
+        title="Termos de Uso – Carcará"
+        description="Condições de uso das soluções de inteligência artificial, automações e plataformas Carcará (Mumic política, IA na Fazenda e mais)."
+        image="https://www.carcara.ai/og-default.png"
+      />
 
       {/* Hero */}
       <section style={{ paddingTop: '160px', paddingBottom: '64px', backgroundColor: '#F5F3E8' }}>

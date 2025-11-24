@@ -5,6 +5,7 @@ import {
   ArrowRight,
 } from 'lucide-react';
 import Navbar from './Navbar';
+import { SEO } from './SEO';
 import Footer from './Footer';
 import { trackViewContent, trackNichoView, trackWhatsAppClick, trackInitiateCheckout, trackFormStart } from '../utils/metaPixel';
 
@@ -113,6 +114,12 @@ export default function NichoPageV2({ data }: NichoPageV2Props) {
   return (
     <div className="min-h-screen bg-white" style={{ fontFamily: 'Inter, sans-serif', color: '#1A1A1A' }}>
       <Navbar currentPath="" />
+      <SEO
+        title={`${data.heroTitle} | Carcará`}
+        description={data.heroLead}
+        image={data.heroImage}
+        type="website"
+      />
 
       {/* Hero Section */}
       <section

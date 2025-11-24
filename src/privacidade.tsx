@@ -1,10 +1,16 @@
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import { SEO } from './components/SEO';
 
 export default function PrivacidadePage() {
   return (
     <div className="min-h-screen bg-white" style={{ fontFamily: 'Inter, sans-serif', color: '#1A1A1A' }}>
       <Navbar currentPath="/privacidade" />
+      <SEO
+        title="Política de Privacidade – Carcará"
+        description="Entenda como tratamos dados em nossas soluções de IA, automações e plataformas (Mumic política, IA na Fazenda e demais nichos)."
+        image="https://www.carcara.ai/og-default.png"
+      />
 
       {/* Hero */}
       <section style={{ paddingTop: '160px', paddingBottom: '64px', backgroundColor: '#F5F3E8' }}>
