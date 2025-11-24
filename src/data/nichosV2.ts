@@ -912,6 +912,7 @@ export const agroNichoV2: NichoDataV2 = {
     'Consultoria Completa',
     'Ainda não sei, quero conversar',
   ],
+  instagramUrl: 'https://www.instagram.com/iadafazenda/',
 };
 
 export const politicaNichoV2: NichoDataV2 = {
@@ -1141,6 +1142,7 @@ export const politicaNichoV2: NichoDataV2 = {
     'Diagnóstico Integrado',
     'Ainda não sei, quero conversar',
   ],
+  instagramUrl: 'https://www.instagram.com/mumicpolitica.ai/',
 };
 
 export const associacoesNichoV2: NichoDataV2 = {

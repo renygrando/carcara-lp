@@ -264,8 +264,8 @@ export default function HomePage() {
                 backgroundColor: '#092D22',
               }}>
                 <ImageWithFallback
-                  src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=450&fit=crop"
-                  alt="Equipe colaborativa trabalhando com tecnologia"
+                  src="https://images.unsplash.com/photo-1612036782180-6f0b6cd846fe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjYXJjYXJhJTIwYmlyZHxlbnwwfHx8fDE3MzI0NzkwMDB8MA&ixlib=rb-4.1.0&q=80&w=1080"
+                  alt="Carcará - Visão estratégica e precisão"
                   style={{
                     width: '540px',
                     height: '400px',
