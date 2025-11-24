@@ -143,13 +143,25 @@ export default function NichoPageV2({ data }: NichoPageV2Props) {
       <section
         className="flex items-center"
         style={{
-          minHeight: '600px',
-          background: 'linear-gradient(90deg, #0D4C3A 0%, rgba(13, 76, 58, 0.5) 100%)',
-          paddingTop: '160px',
+          minHeight: '85vh',
+          background: 'linear-gradient(180deg, #0D4C3A 0%, #092D22 100%)',
+          paddingTop: '140px',
           paddingBottom: '80px',
+          position: 'relative',
         }}
       >
-        <div className="max-w-[1280px] mx-auto w-full px-6 lg:px-20">
+        {/* Grid pattern */}
+        <div style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px)',
+          backgroundSize: '50px 50px',
+          opacity: 0.5,
+        }} />
+        <div className="max-w-[1280px] mx-auto w-full px-6 lg:px-20" style={{ position: 'relative', zIndex: 1 }}>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Left Column */}
             <motion.div
@@ -164,12 +176,12 @@ export default function NichoPageV2({ data }: NichoPageV2Props) {
                 style={{
                   backgroundColor: '#FFD93D',
                   color: '#092D22',
-                  padding: '6px 16px',
-                  borderRadius: '20px',
-                  fontSize: '14px',
+                  padding: '8px 20px',
+                  fontSize: '13px',
                   fontWeight: 600,
                   textTransform: 'uppercase',
-                  letterSpacing: '0.5px',
+                  letterSpacing: '1px',
+                  border: '2px solid #092D22',
                 }}
               >
                 {data.badgeName}

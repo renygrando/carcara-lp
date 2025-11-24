@@ -36,17 +36,12 @@ export default function Navbar({ currentPath = '/' }: NavbarProps) {
       className="fixed top-0 left-0 right-0 z-50"
       style={{
         backgroundColor: scrolled 
-          ? 'rgba(255, 255, 255, 0.8)' 
-          : 'rgba(255, 255, 255, 0.6)',
-        backdropFilter: scrolled ? 'blur(20px)' : 'blur(12px)',
-        WebkitBackdropFilter: scrolled ? 'blur(20px)' : 'blur(12px)',
-        borderBottom: scrolled 
-          ? '1px solid rgba(13, 76, 58, 0.08)' 
-          : '1px solid rgba(13, 76, 58, 0.04)',
+          ? 'rgba(255, 255, 255, 0.95)' 
+          : 'rgba(255, 255, 255, 0.9)',
+        backdropFilter: 'blur(20px)',
+        WebkitBackdropFilter: 'blur(20px)',
+        borderBottom: '2px solid #092D22',
         transition: 'all 0.3s cubic-bezier(0.22, 1, 0.36, 1)',
-        boxShadow: scrolled 
-          ? '0 4px 24px rgba(13, 76, 58, 0.04)' 
-          : '0 2px 8px rgba(13, 76, 58, 0.02)',
       }}
     >
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12" style={{ padding: '16px 24px' }}>

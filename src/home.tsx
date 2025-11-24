@@ -117,15 +117,27 @@ export default function HomePage() {
       {/* Hero Section */}
       <section
         style={{
-          background: 'linear-gradient(135deg, #0D4C3A 0%, rgba(13, 76, 58, 0.85) 100%)',
-          padding: '80px 0',
-          minHeight: '600px',
+          background: 'linear-gradient(180deg, #0D4C3A 0%, #092D22 100%)',
+          padding: '120px 0 80px',
+          minHeight: '90vh',
           display: 'flex',
           alignItems: 'center',
-          marginTop: '80px',
+          marginTop: '72px',
+          position: 'relative',
         }}
       >
-        <div className="max-w-[1280px] mx-auto px-6 lg:px-20 w-full">
+        {/* Grid pattern overlay */}
+        <div style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px)',
+          backgroundSize: '50px 50px',
+          opacity: 0.5,
+        }} />
+        <div className="max-w-[1280px] mx-auto px-6 lg:px-20 w-full" style={{ position: 'relative', zIndex: 1 }}>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Coluna Esquerda */}
             <div>
@@ -140,13 +152,13 @@ export default function HomePage() {
                   style={{
                     backgroundColor: '#FFD93D',
                     color: '#092D22',
-                    padding: '6px 16px',
-                    borderRadius: '20px',
-                    fontSize: '14px',
+                    padding: '8px 20px',
+                    fontSize: '13px',
                     fontWeight: 600,
                     textTransform: 'uppercase',
-                    letterSpacing: '0.5px',
-                    marginBottom: '24px',
+                    letterSpacing: '1px',
+                    marginBottom: '32px',
+                    border: '2px solid #092D22',
                   }}
                 >
                   Consultoria em Vendas e IA
@@ -185,7 +197,7 @@ export default function HomePage() {
                 {/* Botões */}
                 <div className="flex flex-col sm:flex-row gap-4">
                   <motion.button
-                    whileHover={{ backgroundColor: '#FFC700' }}
+                    whileHover={{ scale: 1.02, y: -2 }}
                     whileTap={{ scale: 0.98 }}
                     onClick={() => {
                       trackCTAClick('Ver soluções', 'Hero Section');
@@ -194,15 +206,15 @@ export default function HomePage() {
                     style={{
                       backgroundColor: '#FFD93D',
                       color: '#092D22',
-                      padding: '16px 32px',
-                      borderRadius: '8px',
+                      padding: '18px 36px',
                       fontSize: '16px',
                       fontWeight: 700,
-                      boxShadow: '0 4px 12px rgba(255, 217, 61, 0.3)',
                       display: 'inline-flex',
                       alignItems: 'center',
-                      gap: '8px',
+                      gap: '12px',
                       cursor: 'pointer',
+                      border: '2px solid #092D22',
+                      transition: 'all 0.2s ease',
                     }}
                   >
                     Ver soluções
@@ -214,20 +226,19 @@ export default function HomePage() {
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={() => trackWhatsAppClick('Hero Section')}
-                    whileHover={{ backgroundColor: '#FFFFFF', color: '#0D4C3A' }}
+                    whileHover={{ scale: 1.02, y: -2 }}
                     whileTap={{ scale: 0.98 }}
                     style={{
                       backgroundColor: 'transparent',
-                      border: '2px solid #FFFFFF',
-                      color: '#FFFFFF',
-                      padding: '14px 30px',
-                      borderRadius: '8px',
+                      border: '2px solid #FFD93D',
+                      color: '#FFD93D',
+                      padding: '16px 34px',
                       fontSize: '16px',
                       fontWeight: 600,
                       display: 'inline-flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      transition: 'all 300ms',
+                      transition: 'all 0.2s ease',
                       cursor: 'pointer',
                     }}
                   >
@@ -243,17 +254,26 @@ export default function HomePage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
               className="hidden lg:block"
+              style={{
+                position: 'relative',
+              }}
             >
-              <ImageWithFallback
-                src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=450&fit=crop"
-                alt="Equipe colaborativa trabalhando com tecnologia"
-                style={{
-                  width: '540px',
-                  height: '400px',
-                  objectFit: 'cover',
-                  borderRadius: '16px',
-                }}
-              />
+              <div style={{
+                border: '3px solid #FFD93D',
+                padding: '4px',
+                backgroundColor: '#092D22',
+              }}>
+                <ImageWithFallback
+                  src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=450&fit=crop"
+                  alt="Equipe colaborativa trabalhando com tecnologia"
+                  style={{
+                    width: '540px',
+                    height: '400px',
+                    objectFit: 'cover',
+                    display: 'block',
+                  }}
+                />
+              </div>
             </motion.div>
           </div>
         </div>
@@ -309,72 +329,82 @@ export default function HomePage() {
                       navigate(nicho.path);
                     }}
                     whileHover={{
-                      y: -4,
-                      boxShadow: '0 8px 24px rgba(0, 0, 0, 0.08)',
+                      y: -8,
+                      transition: { duration: 0.2 },
                     }}
                     transition={{ duration: 0.3 }}
-                    className="w-full text-left"
+                    className="w-full text-left group"
                     style={{
                       backgroundColor: '#FFFFFF',
-                      border: '1px solid #E8E6DC',
-                      borderRadius: '12px',
-                      padding: '32px',
-                      boxShadow: '0 2px 8px rgba(0, 0, 0, 0.04)',
+                      border: '2px solid #092D22',
+                      padding: '40px',
                       cursor: 'pointer',
+                      position: 'relative',
+                      overflow: 'hidden',
                     }}
                   >
-                    {/* Ícone */}
-                    <div
-                      style={{
-                        width: '64px',
-                        height: '64px',
-                        background: 'linear-gradient(135deg, #0D4C3A 0%, #092D22 100%)',
-                        borderRadius: '12px',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        marginBottom: '24px',
-                      }}
-                    >
-                      <Icon style={{ width: '32px', height: '32px', color: '#FFD93D' }} />
-                    </div>
+                    {/* Hover effect background */}
+                    <motion.div
+                      className="absolute inset-0 bg-gradient-to-br from-[#FFD93D]/10 to-transparent"
+                      initial={{ opacity: 0 }}
+                      whileHover={{ opacity: 1 }}
+                      transition={{ duration: 0.3 }}
+                    />
+                    
+                    <div style={{ position: 'relative', zIndex: 1 }}>
+                      {/* Ícone */}
+                      <div
+                        style={{
+                          width: '72px',
+                          height: '72px',
+                          backgroundColor: '#092D22',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          marginBottom: '24px',
+                          border: '2px solid #FFD93D',
+                        }}
+                      >
+                        <Icon style={{ width: '36px', height: '36px', color: '#FFD93D' }} />
+                      </div>
 
-                    {/* Título */}
-                    <h3
-                      style={{
-                        fontSize: '24px',
-                        fontWeight: 600,
-                        lineHeight: '32px',
-                        color: '#092D22',
-                        marginBottom: '12px',
-                      }}
-                    >
-                      {nicho.name}
-                    </h3>
+                      {/* Título */}
+                      <h3
+                        style={{
+                          fontSize: '24px',
+                          fontWeight: 700,
+                          lineHeight: '32px',
+                          color: '#092D22',
+                          marginBottom: '12px',
+                        }}
+                      >
+                        {nicho.name}
+                      </h3>
 
-                    {/* Descrição */}
-                    <p
-                      style={{
-                        fontSize: '16px',
-                        lineHeight: '24px',
-                        color: '#1A1A1A',
-                        marginBottom: '16px',
-                      }}
-                    >
-                      {nicho.description}
-                    </p>
+                      {/* Descrição */}
+                      <p
+                        style={{
+                          fontSize: '16px',
+                          lineHeight: '24px',
+                          color: '#1A1A1A',
+                          marginBottom: '20px',
+                        }}
+                      >
+                        {nicho.description}
+                      </p>
 
-                    {/* Link */}
-                    <div
-                      className="flex items-center gap-2"
-                      style={{
-                        fontSize: '15px',
-                        fontWeight: 600,
-                        color: '#0D4C3A',
-                      }}
-                    >
-                      Conhecer soluções
-                      <ArrowRight className="h-4 w-4" />
+                      {/* Link */}
+                      <div
+                        className="flex items-center gap-2"
+                        style={{
+                          fontSize: '15px',
+                          fontWeight: 700,
+                          color: '#0D4C3A',
+                        }}
+                      >
+                        Conhecer soluções
+                        <ArrowRight className="h-4 w-4" />
+                      </div>
                     </div>
                   </motion.button>
                 </ScrollReveal>
@@ -432,15 +462,14 @@ export default function HomePage() {
                   <div
                     style={{
                       backgroundColor: '#F5F3E8',
-                      border: '2px solid #E8E6DC',
-                      borderRadius: '12px',
-                      padding: '32px',
+                      border: '2px solid #092D22',
+                      padding: '36px',
                     }}
                   >
                     <Icon
                       style={{
-                        width: '48px',
-                        height: '48px',
+                        width: '52px',
+                        height: '52px',
                         color: '#0D4C3A',
                         marginBottom: '24px',
                       }}
@@ -448,7 +477,7 @@ export default function HomePage() {
                     <h4
                       style={{
                         fontSize: '24px',
-                        fontWeight: 600,
+                        fontWeight: 700,
                         lineHeight: '32px',
                         color: '#092D22',
                         marginBottom: '12px',
