@@ -264,7 +264,7 @@ export default function HomePage() {
                 backgroundColor: '#092D22',
               }}>
                 <ImageWithFallback
-                  src="https://images.unsplash.com/photo-1551431009-a802eeec77b1?w=1080&q=80"
+                  src="/src/assets/Carcará voando.png"
                   alt="Carcará - Visão estratégica e precisão"
                   style={{
                     width: '540px',
