@@ -52,7 +52,10 @@ const nichos = [
 ];
 
 // Componente de Scroll Reveal
-interface ScrollRevealProps { children: any; delay?: number; key?: any }
+interface ScrollRevealProps { 
+  children: React.ReactNode; 
+  delay?: number;
+}
 function ScrollReveal({ children, delay = 0 }: ScrollRevealProps) {
   return (
     <motion.div

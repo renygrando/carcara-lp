@@ -41,8 +41,8 @@ export default function BlogPage() {
         if (response.data.length === 0 && isLikelyWrongUrl) {
           setError('A URL do Strapi está apontando para localhost em produção. Verifique a variável VITE_STRAPI_URL no Easypanel.');
         }
-      } catch (e: any) {
-        setError(e.message || 'Falha ao carregar posts');
+      } catch (e) {
+        setError(e instanceof Error ? e.message : 'Erro ao carregar posts');
       } finally {
         setLoading(false);
       }

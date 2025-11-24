@@ -39,8 +39,8 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
           sessionStorage.setItem(cacheKey, JSON.stringify(p));
         }
         setPost(p);
-      } catch (e: any) {
-        setError(e.message || 'Erro ao carregar post');
+      } catch (e) {
+        setError(e instanceof Error ? e.message : 'Erro ao carregar post');
       } finally {
         setLoading(false);
       }

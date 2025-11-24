@@ -1,14 +1,20 @@
 import { useEffect } from 'react';
 
+interface StructuredData {
+  '@context': string;
+  '@type': string;
+  [key: string]: unknown;
+}
+
 interface SEOProps {
   title?: string;
   description?: string;
   image?: string;
   url?: string;
-  type?: string; // article, website
+  type?: 'article' | 'website';
   publishedTime?: string;
   modifiedTime?: string;
-  structuredData?: any; // JSON-LD object or array
+  structuredData?: StructuredData | StructuredData[];
 }
 
 export function SEO({
@@ -62,8 +68,8 @@ export function SEO({
     const existing = head.querySelector('script[data-structured="true"]');
     if (existing) existing.remove();
 
-    let jsonLd: any = structuredData;
-    if (!jsonLd && type === 'article') {
+    let jsonLd: StructuredData | StructuredData[] | undefined = structuredData;
+    if (!jsonLd && type === 'article' && publishedTime) {
       jsonLd = {
         '@context': 'https://schema.org',
         '@type': 'Article',
