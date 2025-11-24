@@ -126,11 +126,13 @@ export default function BlogPage() {
               {/* Grid de Posts */}
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
                 {posts.map((post) => (
-                  <motion.article
+                  <motion.a
                     key={post.id}
+                    href={`#/blog/${post.slug || post.documentId}`}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
+                    className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 block"
+                    style={{ textDecoration: 'none', cursor: 'pointer' }}
                   >
                     {/* Imagem do Post */}
                     <div style={{ height: '240px', overflow: 'hidden' }}>
@@ -199,22 +201,20 @@ export default function BlogPage() {
                       )}
 
                       {/* Botão de leitura */}
-                      <motion.a
-                        href={`#/blog/${post.slug || post.documentId}`}
+                      <motion.div
                         whileHover={{ x: 5 }}
                         className="inline-flex items-center gap-2"
                         style={{
                           color: '#092D22',
                           fontWeight: 600,
                           fontSize: '16px',
-                          textDecoration: 'none',
                         }}
                       >
                         Ler mais
                         <ArrowRight className="w-4 h-4" />
-                      </motion.a>
+                      </motion.div>
                     </div>
-                  </motion.article>
+                  </motion.a>
                 ))}
               </div>
 
