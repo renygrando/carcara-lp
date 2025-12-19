@@ -102,7 +102,7 @@ export default function Footer() {
                   className="transition-colors hover:text-[#FFD93D]"
                   style={{ fontSize: '15px', color: 'rgba(255, 255, 255, 0.8)', cursor: 'pointer' }}
                 >
-                  (35) 9764-0878
+                  +55 13 99808-6401
                 </a>
               </li>
               <li className="flex items-center gap-2">
