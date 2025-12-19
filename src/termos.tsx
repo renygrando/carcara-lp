@@ -228,7 +228,7 @@ export default function TermosPage() {
               <p className="text-[#1A1A1A] leading-relaxed">
                 <strong>Carcará Consultoria em Vendas e IA</strong><br />
                 E-mail: <a href="mailto:fernanda@carcara.ai" className="text-[#0D4C3A] hover:underline" style={{ cursor: 'pointer' }}>fernanda@carcara.ai</a><br />
-                Telefone: (35) 9 7640-0878<br />
+                Telefone: +55 13 99808-6401<br />
                 Localização: Em breve em Santos/SP
               </p>
             </div>

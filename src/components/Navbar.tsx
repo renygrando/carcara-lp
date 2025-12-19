@@ -189,7 +189,7 @@ export default function Navbar({ currentPath = '/' }: NavbarProps) {
 
           {/* CTA Button Desktop */}
           <div className="hidden lg:block">
-            <a href="https://wa.me/553597640878" target="_blank" rel="noopener noreferrer" style={{ cursor: 'pointer' }}>
+            <a href="https://wa.me/5513998086401" target="_blank" rel="noopener noreferrer" style={{ cursor: 'pointer' }}>
               <motion.button
                 whileHover={{ 
                   backgroundColor: '#FFC700',
@@ -318,7 +318,7 @@ export default function Navbar({ currentPath = '/' }: NavbarProps) {
               >
                 Contato
               </motion.a>
-              <a href="https://wa.me/553597640878" target="_blank" rel="noopener noreferrer" style={{ marginTop: '16px', cursor: 'pointer' }}>
+              <a href="https://wa.me/5513998086401" target="_blank" rel="noopener noreferrer" style={{ marginTop: '16px', cursor: 'pointer' }}>
                 <motion.button
                   className="w-full"
                   style={{

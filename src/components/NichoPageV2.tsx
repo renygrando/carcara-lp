@@ -747,7 +747,7 @@ export default function NichoPageV2({ data }: NichoPageV2Props) {
                       ))}
                     </ul>
                     <motion.a
-                      href="https://wa.me/553597640878"
+                      href="https://wa.me/5513998086401"
                       target="_blank"
                       rel="noopener noreferrer"
                       whileHover={{ backgroundColor: '#0D4C3A', color: '#FFFFFF' }}

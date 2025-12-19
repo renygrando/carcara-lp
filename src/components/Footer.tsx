@@ -98,7 +98,7 @@ export default function Footer() {
               <li className="flex items-center gap-2">
                 <Phone className="h-4 w-4" style={{ color: 'rgba(255, 255, 255, 0.8)' }} />
                 <a
-                  href="https://wa.me/553597640878"
+                  href="https://wa.me/5513998086401"
                   className="transition-colors hover:text-[#FFD93D]"
                   style={{ fontSize: '15px', color: 'rgba(255, 255, 255, 0.8)', cursor: 'pointer' }}
                 >

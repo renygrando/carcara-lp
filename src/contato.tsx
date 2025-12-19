@@ -83,11 +83,11 @@ export default function ContatoPage() {
                       Telefone / WhatsApp
                     </h4>
                     <a
-                      href="tel:+553597640878"
+                      href="tel:+5513998086401"
                       style={{ fontSize: '16px', color: '#1A1A1A', cursor: 'pointer' }}
                       className="hover:text-[#0D4C3A] transition-colors"
                     >
-                      (35) 9 7640-0878
+                      +55 13 99808-6401
                     </a>
                   </div>
                 </div>

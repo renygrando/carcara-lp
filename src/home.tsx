@@ -222,7 +222,7 @@ export default function HomePage() {
                   </motion.button>
 
                   <motion.a
-                    href="https://wa.me/553597640878"
+                    href="https://wa.me/5513998086401"
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={() => trackWhatsAppClick('Hero Section')}

@@ -195,7 +195,7 @@ export default function PrivacidadePage() {
               </p>
               <p className="text-[#1A1A1A] leading-relaxed">
                 <strong>E-mail:</strong> <a href="mailto:fernanda@carcara.ai" className="text-[#0D4C3A] hover:underline">fernanda@carcara.ai</a><br />
-                <strong>Telefone:</strong> (35) 9 7640-0878
+                <strong>Telefone:</strong> +55 13 99808-6401
               </p>
             </div>
 
@@ -207,7 +207,7 @@ export default function PrivacidadePage() {
               <p className="text-[#1A1A1A] leading-relaxed">
                 <strong>Carcará Consultoria em Vendas e IA</strong><br />
                 E-mail: <a href="mailto:fernanda@carcara.ai" className="text-[#0D4C3A] hover:underline" style={{ cursor: 'pointer' }}>fernanda@carcara.ai</a><br />
-                Telefone: (35) 9 7640-0878<br />
+                Telefone: +55 13 99808-6401<br />
                 Localização: Em breve em Santos/SP
               </p>
             </div>

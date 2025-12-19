@@ -307,7 +307,7 @@ export default function SobrePage() {
           >
             Agende um diagnóstico gratuito e descubra como a inteligência artificial pode impulsionar seus resultados.
           </p>
-          <a href="https://wa.me/553597640878" target="_blank" rel="noopener noreferrer">
+          <a href="https://wa.me/5513998086401" target="_blank" rel="noopener noreferrer">
             <motion.button
               whileHover={{ backgroundColor: '#FFC700' }}
               whileTap={{ scale: 0.98 }}

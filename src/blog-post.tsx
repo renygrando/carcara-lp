@@ -340,7 +340,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
                   Agende um diagnóstico gratuito e descubra como a Carcará pode transformar seu negócio
                 </p>
                 <motion.a
-                  href="https://wa.me/553597640878"
+                  href="https://wa.me/5513998086401"
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.05 }}

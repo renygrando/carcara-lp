@@ -312,7 +312,7 @@ export default function BlogPage() {
               <p style={{ fontSize: '16px', color: '#1A1A1A', marginBottom: '32px' }}>
                 Enquanto isso, que tal agendar um diagnóstico gratuito e descobrir como podemos ajudar seu negócio agora?
               </p>
-              <a href="https://wa.me/553597640878" target="_blank" rel="noopener noreferrer" style={{ cursor: 'pointer' }}>
+              <a href="https://wa.me/5513998086401" target="_blank" rel="noopener noreferrer" style={{ cursor: 'pointer' }}>
                 <motion.button
                   whileHover={{ backgroundColor: '#FFC700' }}
                   whileTap={{ scale: 0.98 }}
